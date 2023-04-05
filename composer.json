@@ -1,0 +1,23 @@
+{
+    "name": "fort/php",
+    "description": "PHP Global helpers",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Fort\\Php\\": "src/"
+
+        },
+        "files": [
+             "src/global/functions/arith.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Sammy Fort",
+            "email": "sam@velstack.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
