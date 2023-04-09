@@ -19,7 +19,8 @@ install with composer
 
  
  
-#### Guides
+# Guides
+### Laravel Eloquent Filtering by Date
 
 #### Make sure model uses the `DateFilters`
 
