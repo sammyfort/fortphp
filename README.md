@@ -180,6 +180,13 @@ class User{
     return fort_percentage(1.5, 200);
     // 3    
   }
+  
+    public function squareRoot()
+  {
+  
+    return fort_square_root_of(20);
+    // 4.4721359549996 
+  }
    
 }
  
