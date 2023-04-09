@@ -1,9 +1,9 @@
 <?php
 
-namespace Fort\Php\tests\Unit;
+namespace Fort\Illuminate\tests;
 
-use Fort\Php\Global\Laravel\Base;
-use Fort\Php\Global\Laravel\EloquentFilters;
+use Fort\Illuminate\Support\Laravel\Base;
+use Fort\Illuminate\Support\Laravel\EloquentFilters;
 
 abstract class TestCase extends Base
 {

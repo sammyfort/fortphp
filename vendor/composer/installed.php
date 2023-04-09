@@ -3,7 +3,7 @@
         'name' => 'fort/php',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a1004d868b6f51ad1173c44eace059aed97d8beb',
+        'reference' => 'b09e24f845b4dcf0eeb1d6a6bbc3c9155dc16e35',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'fort/php' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a1004d868b6f51ad1173c44eace059aed97d8beb',
+            'reference' => 'b09e24f845b4dcf0eeb1d6a6bbc3c9155dc16e35',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

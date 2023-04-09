@@ -28,7 +28,7 @@ if (!function_exists('fort_multiply'))
 
 if (!function_exists('fort_div'))
 {
-    function fort_multiply(int|float $first_val, int|float $second_val): int|float
+    function fort_div(int|float $first_val, int|float $second_val): int|float
     {
         return $first_val / $second_val;
     }

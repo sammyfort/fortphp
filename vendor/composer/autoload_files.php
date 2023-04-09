@@ -9,5 +9,9 @@ return array(
     '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
     'a4a119a56e50fbb293281d9a48007e0e' => $vendorDir . '/symfony/polyfill-php80/bootstrap.php',
     'a1105708a18b76903365ca1c4aa61b02' => $vendorDir . '/symfony/translation/Resources/functions.php',
-    '5c560a11c48355e6dc8f116859fce154' => $baseDir . '/src/Global/functions/arith.php',
+    'd38257a72e15d728f5178418ca37d58f' => $baseDir . '/src/Global/Standard/arith.php',
+    'ca617d220d79e1aba0ade98821dc25b4' => $baseDir . '/src/Global/Standard/arr.php',
+    'eaa66a5f4387bcc4a234846e01b6382b' => $baseDir . '/src/Global/Standard/datetime.php',
+    '4ecc15c7322cb0af81bceff2ef24f78e' => $baseDir . '/src/Global/Standard/maths.php',
+    '8a12ae4d849df89544745125f39ab8d8' => $baseDir . '/src/Global/Standard/str.php',
 );

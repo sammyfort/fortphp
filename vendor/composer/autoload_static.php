@@ -10,7 +10,11 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
-        '5c560a11c48355e6dc8f116859fce154' => __DIR__ . '/../..' . '/src/Global/functions/arith.php',
+        'd38257a72e15d728f5178418ca37d58f' => __DIR__ . '/../..' . '/src/Global/Standard/arith.php',
+        'ca617d220d79e1aba0ade98821dc25b4' => __DIR__ . '/../..' . '/src/Global/Standard/arr.php',
+        'eaa66a5f4387bcc4a234846e01b6382b' => __DIR__ . '/../..' . '/src/Global/Standard/datetime.php',
+        '4ecc15c7322cb0af81bceff2ef24f78e' => __DIR__ . '/../..' . '/src/Global/Standard/maths.php',
+        '8a12ae4d849df89544745125f39ab8d8' => __DIR__ . '/../..' . '/src/Global/Standard/str.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -23,7 +27,7 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         ),
         'F' => 
         array (
-            'Fort\\PHP\\' => 9,
+            'Fort\\Illuminate\\' => 16,
         ),
         'C' => 
         array (
@@ -48,7 +52,7 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
-        'Fort\\PHP\\' => 
+        'Fort\\Illuminate\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

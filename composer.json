@@ -5,15 +5,15 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Fort\\PHP\\": "src/"
+            "Fort\\Illuminate\\": "src/"
 
         },
         "files": [
-            "src/Global/Standard/arith.php",
-            "src/Global/Standard/arr.php",
-            "src/Global/Standard/datetime.php",
-            "src/Global/Standard/maths.php",
-            "src/Global/Standard/str.php"
+            "src/Support/Standard/arith.php",
+            "src/Support/Standard/arr.php",
+            "src/Support/Standard/datetime.php",
+            "src/Support/Standard/maths.php",
+            "src/Support/Standard/str.php"
         ]
     },
     "authors": [

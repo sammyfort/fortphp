@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Fort\Php\Global\Laravel;
+namespace Fort\Illuminate\Global\Laravel;
 
 
 class Base

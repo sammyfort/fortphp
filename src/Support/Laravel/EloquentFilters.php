@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Fort\Php\Global\Laravel;
+namespace Fort\Illuminate\Support\Laravel;
 use Carbon\Carbon;
 
 trait EloquentFilters
@@ -52,4 +52,6 @@ trait EloquentFilters
     {
         return $model->whereBetween($column, [Carbon::now()->subYear(), Carbon::now()]);
     }
+
+
 }
