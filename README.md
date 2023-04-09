@@ -25,7 +25,7 @@ install with composer
 #### Make sure model uses the `DateFilters`
 
 ```php
-<?php
+ 
 
 namespace App\Models;
 
@@ -55,8 +55,7 @@ class Invoice extends Model
 #### Once the `DateFilters` has been implemented in your model, you may access them in your controller like below
 
 ```php
-<?php
-
+ 
 namespace App\Http\Controllers\Subscription;
 
 use App\Http\Controllers\Controller;
