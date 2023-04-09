@@ -1,15 +1,19 @@
 {
     "name": "fort/php",
-    "description": "PHP Global helpers",
+    "description": "PHP and Laravel Global helpers",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Fort\\Php\\": "src/"
+            "Fort\\PHP\\": "src/"
 
         },
         "files": [
-             "src/global/functions/arith.php"
+            "src/Global/Standard/arith.php",
+            "src/Global/Standard/arr.php",
+            "src/Global/Standard/datetime.php",
+            "src/Global/Standard/maths.php",
+            "src/Global/Standard/str.php"
         ]
     },
     "authors": [
@@ -19,5 +23,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "nesbot/carbon": "^2.16"
+    }
 }
