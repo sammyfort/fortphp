@@ -2,10 +2,11 @@
 
 namespace Fort\Illuminate\tests;
 
-use Fort\Illuminate\Support\Laravel\Base;
-use Fort\Illuminate\Support\Laravel\EloquentFilters;
+
+use Fort\Illuminate\Support\Eloquent\Base;
+use Fort\Illuminate\Support\Eloquent\DateFilters;
 
 abstract class TestCase extends Base
 {
-    use EloquentFilters;
+    use DateFilters;
 }

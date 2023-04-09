@@ -21,22 +21,50 @@ install with composer
  
 #### Guides
 
+#### Make sure model uses the `DateFilters`
 
 ```php
 <?php
 
 namespace App\Models;
 
-use Fort\Illuminate\Support\Laravel\EloquentFilters;
+use Fort\Illuminate\Support\Eloquent\DateFilters;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
-    use HasFactory, EloquentFilters;
-    
-   
+    use HasFactory, DateFilters;
+     
+
+    protected $table = 'invoices';
+
+     protected $fillable = [
+        'user_id',
+        'invoice_id',
+        'customer',
+        'shipping' ,
+    ];
+
+      
+}
+
+```
+#### Once the `DateFilters` has been implemented in your model, you may access them in your controller like below
+
+```php
+<?php
+
+namespace App\Http\Controllers\Subscription;
+
+use App\Http\Controllers\Controller;
+use App\Models\Invoice;
+ 
+
+class InvoiceController extends Controller
+{
+ 
 
     public function getTodayInvoices()
     {
@@ -108,24 +136,17 @@ class Invoice extends Model
     }
     
     
-    
 
-    protected $table = 'invoices';
 
-     protected $fillable = [
-        'user_id',
-        'invoice_id',
-        'customer',
-        'shipping' ,
-    ];
+ 
 
-    
    
 }
-
+ 
 ```
+# Standard
 
-
+#### General php helpers
 ```php
 class User{
   

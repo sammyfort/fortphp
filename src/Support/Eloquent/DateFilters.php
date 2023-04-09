@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Fort\Illuminate\Support\Laravel;
+namespace Fort\Illuminate\Support\Eloquent;
 use Carbon\Carbon;
 
-trait EloquentFilters
+trait DateFilters
 {
     public function scopeToday($model, $column = 'created_at')
     {
