@@ -187,6 +187,14 @@ class User{
     return fort_square_root_of(20);
     // 4.4721359549996 
   }
+  
+    public function exponential()
+  {
+  
+    return fort_expo(2, 2);
+    // 2 exponent 2
+    // returns 4
+  }
    
 }
  
