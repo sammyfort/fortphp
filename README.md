@@ -149,12 +149,36 @@ class InvoiceController extends Controller
 #### General php helpers
 ```php
 class User{
+
+ public function string()
+  {
+  
+    return fort_random_string(32);
+    // generate random string string with a length of 32     
+  }
+   
+
   
   public function usage()
   {
   
     return fort_sum(3, 7);
     // 10     
+  }
+  
+  
+   public function mul()
+  {
+  
+    return fort_multiply(4, 8);
+    // 32     
+  }
+  
+   public function percentage()
+  {
+  
+    return fort_percentage(1.5, 200);
+    // 3    
   }
    
 }
