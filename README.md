@@ -159,19 +159,32 @@ class User{
    
 
   
-  public function usage()
+  public function addN()
   {
   
     return fort_sum(3, 7);
     // 10     
   }
   
+  public function subtractN()
+  {
   
-   public function mul()
+    return fort_sub(4, 8);
+    // -4     
+  }
+   
+   public function mulN()
   {
   
     return fort_multiply(4, 8);
     // 32     
+  }
+  
+     public function divN()
+  {
+  
+    return fort_div(20, 2);
+    // 10     
   }
   
    public function percentage()
@@ -194,6 +207,35 @@ class User{
     return fort_expo(2, 2);
     // 2 exponent 2
     // returns 4
+  }
+  
+  
+     public function maxValInArray()
+  {
+    $collection = ['first'=> 10, 'second'=> 20, 'third'=>30];
+    return fort_max_array_value($collection);
+   
+    // returns 'third'
+  }
+  
+  
+       public function minValInArray()
+  {
+    $collection = ['everett'=> 1, 'phill'=> 2, 'fort'=>3];
+    return fort_min_array_value($collection);
+   
+    // returns 'everett'
+  }
+  
+  
+         public function arrayInArrayValue()
+  {
+    $collection = [
+    ['everett'=> 1, 'phill'=> 2, 'fort'=>3]
+    ];
+    return fortMaxArrayInArrayValue($collection,'everett');
+   
+    // returns 1
   }
    
 }
