@@ -21,23 +21,121 @@ install with composer
  
 #### Guides
 
+
 ```php
+<?php
 
- 
+namespace App\Models;
 
-class User{
+use Fort\Illuminate\Support\Laravel\EloquentFilters;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Invoice extends Model
+{
+    use HasFactory, EloquentFilters;
+    
    
+
+    public function getTodayInvoices()
+    {
+
+        return Invoice::today()->get();
+        
+        // all invoices created today
+    }
+    
+    public function yesterday()
+    {
+
+        return Invoice::yesterday()->sum('amount');
+        // sums yesterday invoices amount
+    }
+    
+     public function week()
+     {
+
+        return Invoice::Last7Days()->get();
+        // returns invoices of the last 7 days
+    }
+    
+    
+       public function two_weeks()
+     {
+
+        return Invoice::QuarterToDate()->get();
+        // returns all invoices from last two weeks
+    }
+    
+     public function this_month()
+     {
+
+        return Invoice::MonthToDate()->sum('amount');
+        // returns invoices from the start of the current month 
+    }
+    
+    public function last30days()
+     {
+
+        return Invoice::Last30Days()->get();
+         // returns invoices created in the last 30 days.
+     }
+    
+   
+    
+    public function this_year()
+     {
+
+        return Invoice::YearToDate()->get();
+        // returns all invoices from the start of the year
+    }
+    
+    
+      public function last_year()
+     {
+
+        return Invoice::LastYear()->get();
+        // returns all invoices from last year
+    }
+    
+    
+       public function last_quater()
+     {
+
+        return Invoice::LastQuarter()->get();
+        // returns all invoices from last 3 months
+    }
+    
+    
+    
+
+    protected $table = 'invoices';
+
+     protected $fillable = [
+        'user_id',
+        'invoice_id',
+        'customer',
+        'shipping' ,
+    ];
+
+    
+   
+}
+
+```
+
+
+```php
+class User{
+  
   public function usage()
   {
   
     return fort_sum(3, 7);
     // 10     
   }
-  
- 
- 
-  
+   
 }
  
 ```
