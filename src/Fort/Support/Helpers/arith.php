@@ -1,6 +1,5 @@
 <?php
 
-
 if (!function_exists('fort_sum'))
 {
     function fort_sum(int|float $first_val, int|float $second_val): int|float

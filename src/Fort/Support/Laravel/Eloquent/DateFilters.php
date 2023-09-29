@@ -1,8 +1,9 @@
 <?php
 
 
-namespace Fort\Illuminate\Support\Eloquent;
+namespace Fort\Support\Laravel\Eloquent;
 use Carbon\Carbon;
+
 
 trait DateFilters
 {
