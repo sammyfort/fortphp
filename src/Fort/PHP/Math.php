@@ -51,6 +51,8 @@ class Math
         return $first_val * $second_val;
     }
 
+//  git remote set-url origin https://sammyfort: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@github.com/sammyfort/FortPHP.git
+
     /**
      * Parse about any Mathematics calculations
      * @param int|float $first_val [required] <p>
