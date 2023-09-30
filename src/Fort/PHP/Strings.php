@@ -4,7 +4,10 @@
 namespace Fort\PHP;
 
 
-class String
+
+
+class Strings
 {
+
 
 }

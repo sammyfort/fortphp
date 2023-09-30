@@ -2,10 +2,21 @@
 
 
 namespace Fort\PHP;
+use Fort\PHP\Database\DB;
 
+
+use Fort\Exception\LogicException;
 
 class Math
 {
+    /**
+     * @throws LogicException
+     */
+    protected function __construct()
+    {
+        throw new LogicException('Invalid instantiation');
+    }
+
     /**
      * Parse about any Mathematics calculations
      * @param int|float $first_val [required] <p>
@@ -20,7 +31,6 @@ class Math
     {
         return $first_val + $second_val;
     }
-
     /**
      * Parse about any Mathematics calculations
      * @param int|float $first_val [required] <p>
@@ -35,7 +45,6 @@ class Math
     {
         return $first_val - $second_val;
     }
-
     /**
      * Parse about any Mathematics calculations
      * @param int|float $first_val [required] <p>
@@ -50,9 +59,6 @@ class Math
     {
         return $first_val * $second_val;
     }
-
-//  git remote set-url origin https://sammyfort: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@github.com/sammyfort/FortPHP.git
-
     /**
      * Parse about any Mathematics calculations
      * @param int|float $first_val [required] <p>
@@ -67,7 +73,6 @@ class Math
     {
         return $first_val / $second_val;
     }
-
     /**
      * Parse about any Mathematics calculations
      * @param int|float $first_val [required] <p>
@@ -82,6 +87,33 @@ class Math
     {
         return $first_val ** $second_val;
     }
+    /**
+     * Parse about any Mathematics calculations
+     * @param int|float $percentage [required] <p>
+     * The percentage rate.
+     * </p>
+     * @param int|float $size [required] <p>
+     * The total size of data to look for the percentage
+     * </p>
+     * @return int|float returns $percentage on $size
+     */
+    public static function percentage(int|float $percentage, int|float $size): int|float
+    {
+        return  $percentage / 100 * $size;
+    }
+    /**
+     * Parse about any Mathematics calculations
+     * @param mixed $values [required] <p>
+     * The number to sum.
+     * </p>
+     * @return int returns the maximum value in the values param of the first and the second params
+     */
+    public static function max(mixed $values): mixed
+    {
+        return max($values);
+    }
+
+
 
 
 }
