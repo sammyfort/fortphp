@@ -5,33 +5,23 @@ namespace Fort\PHP\Database;
 use Closure;
 use Exception;
 use Fort\Exception\DBException;
+use Fort\PHP\Environment;
 use PDO;
 use PDOException;
 
-class DB
+class DB extends Environment implements DBInterface
 {
-    protected static ?Closure $pdo;
-    protected static string $database;
-    protected static string $user;
-    protected static string|null $password = '';
 
-    public function __construct($host, $user, $database, $password = null)
-    {
-        static::$pdo = $host;
-        static::$database = $database;
-        static::$user = $user;
-        static::$password = $password;
-    }
-    protected static function connect(): PDO|string
+    public static function connect(): PDO|string
     {
         try {
-            $query = new PDO(
-                "mysql:host=".static::$pdo.";dbname=".static::$database,
-                static::$user,
-                static::$password,
-                static::$database);
-            $query->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $query;
+            $handle = new PDO(
+                "mysql:host=".self::HOST.";dbname=".self::DATABASE,
+                self::USER,
+                self::PASSWORD,
+                self::DATABASE);
+            $handle->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $handle;
         } catch (PDOException $e) {
             return "Connection failed: " . $e->getMessage();
         }
