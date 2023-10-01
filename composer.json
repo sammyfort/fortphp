@@ -17,7 +17,7 @@
         "files": [
             "src/PHP/Standard/Standard_c.php",
             "src/Support/Helpers/arr.php",
-            "src/Support/Helpers/maths.php",
+            "src/Support/Helpers/math.php",
             "src/Support/Helpers/str.php"
         ]
     },
