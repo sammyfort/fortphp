@@ -4,10 +4,6 @@
 <img alt="Packagist Downloads (custom server)" src="https://img.shields.io/packagist/dt/fort/php">
 
 <img alt="GitHub" src="https://img.shields.io/github/license/sammyfort/FortPHP">
-
-
- 
-
 </p>
  
 
