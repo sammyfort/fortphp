@@ -192,15 +192,15 @@ class Str
     /**
      * Determine if a given string contains all array values.
      *
-     * @param  string  $string
+     * @param  string  $haystack
      * @param  iterable<string>  $needles
      * @param  bool  $ignoreCase
      * @return bool
      */
-    public static function containsAll( string $string, string|iterable $needles, $ignoreCase = false):bool
+    public static function containsAll($haystack, string|iterable $needles, $ignoreCase = false):bool
     {
         foreach ($needles as $needle) {
-            if (! static::contains($string, $needle, $ignoreCase)) {
+            if (! static::contains($haystack, $needle, $ignoreCase)) {
                 return false;
             }
         }
@@ -228,7 +228,7 @@ class Str
      * @param  string|iterable<string>  $needles
      * @return bool
      */
-    public static function endsWith(string $haystack, $needles):bool
+    public static function endsWith($haystack, $needles)
     {
         if (! is_iterable($needles)) {
             $needles = (array) $needles;
