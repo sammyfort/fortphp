@@ -5,21 +5,20 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Fort\\": "src/Fort/",
+            "Fort\\": "src/",
             "Fort\\PHP\\": [
-                "src/Fort/PHP/",
-                "src/Fort/PHP/Database/",
-                "src/Fort/Exception/",
-                "src/Fort/Handler/"
+                "src/PHP/",
+                "src/PHP/Database/",
+                "src/Exception/",
+                "src/Handler/"
             ]
         },
 
         "files": [
-            "src/Fort/Support/Helpers/arith.php",
-            "src/Fort/Support/Helpers/arr.php",
-            "src/Fort/Support/Helpers/datetime.php",
-            "src/Fort/Support/Helpers/maths.php",
-            "src/Fort/Support/Helpers/str.php"
+            "src/PHP/Standard/Standard_c.php",
+            "src/Support/Helpers/arr.php",
+            "src/Support/Helpers/maths.php",
+            "src/Support/Helpers/str.php"
         ]
     },
     "authors": [
