@@ -5,7 +5,13 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Fort\\": "src/Fort"
+            "Fort\\": "src/Fort/",
+            "Fort\\PHP\\": [
+                "src/Fort/PHP/",
+                "src/Fort/PHP/Database/",
+                "src/Fort/Exception/",
+                "src/Fort/Handler/"
+            ]
         },
 
         "files": [
