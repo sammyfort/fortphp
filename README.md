@@ -16,9 +16,10 @@ install with composer
 ```bash
   composer require fort/php
 ```
-# Available PHP Functions
+# Available [PHP](#Table of Content for PHP) Functions
+ 
 
-## Table of Contents
+## Table of Content for PHP
 
 * [Math](#Math)
     * [Percentage](#Percentage)
@@ -32,8 +33,14 @@ install with composer
     * [Multiply](#Multiplication)
     
     
-* [String](#is_mobile)
-    * [valueExist](#str_value_exist)
+* [String](#String)
+    * [valueExist](#valueExist)
+    * [contains](#contains)
+    * [between](#between)
+    * [after](#after)
+    * [after](#afterLast)
+    * [before](#before)
+  * [beforeLast](#beforelast)
    
 * [Array](#array_get)
     * [array_get](#array_get)
@@ -42,6 +49,7 @@ install with composer
 ## Math
 ### Percentage
 ```php
+<?php
  use Fort\PHP\Math;
  
  Math::percentage(1.5, 200);
@@ -51,6 +59,7 @@ install with composer
 
 ### Exponential
 ```php
+<?php
  use Fort\PHP\Math;
  
  Math::expo(2, 2);
@@ -58,8 +67,9 @@ install with composer
 }
 ```
 
-### Exponential
+### SquareRoot
 ```php
+<?php
  use Fort\PHP\Math;
  
  Math::sqrRoot(20);
@@ -67,19 +77,9 @@ install with composer
 }
 ```
 
-### Maximum
+### Summation
 ```php
- use Fort\PHP\Math;
- 
- Math::max(2, 2);
- // 4
-}
-```
-
-
-
-### Sum
-```php
+<?php
  use Fort\PHP\Math;
  
  Math::sum(11, 11);
@@ -87,20 +87,132 @@ install with composer
 }
 ```
 
- ## String
-### valueExist
- ```php
- use Fort\PHP\Str;
+### Subtraction
+```php
+<?php
+ use Fort\PHP\Math;
  
- $haystack = array('Fort', 'Everette', 'Mike');
- // returns true if the needle exist in case insensitive, false otherwise
- Str::valueExist($haystack, 'foRT');
-  // true
-  
+ Math::sub(10, 11);
+ // -1
 }
 ```
 
-#### Make sure model uses the `DateFilters`
+### Subtraction
+```php
+<?php
+ use Fort\PHP\Math;
+ 
+ Math::div(19, 5);
+ // 3.8
+}
+```
+
+### Subtraction
+```php
+<?php
+ use Fort\PHP\Math;
+ 
+ Math::mul(21, 8);
+ // 168
+}
+```
+
+### Maximum
+```php
+<?php
+ use Fort\PHP\Math;
+ 
+ Math::max(2, 6, 4);
+ // 6
+ 
+}
+```
+
+### Minimum
+```php
+<?php
+ use Fort\PHP\Math;
+ 
+ Math::min(2, 6, 4);
+ // 2
+ 
+}
+```
+
+
+ ## String
+### valueExist
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+ $haystack = array('Fort', 'Everette', 'Mike');
+ // returns true if the needle exist in case insensitive, false otherwise
+ Str::valueExist($haystack, 'foRT');
+  // true 
+}
+```
+### contains
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+$slice = Str::contains('I was raised in Ghana', 'Ghana');
+// 'true'
+}
+```
+
+### after
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+$slice = Str::after('His name is fort', 'His name');
+// ' is fort'
+}
+```
+
+### afterLast
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+ $slice = Str::afterLast('App\Http\Controllers\Controller', '\\');
+ // 'Controller'
+}
+```
+
+### before
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+$slice = Str::before('He is married', 'married');
+// 'He is'
+}
+```
+
+### beforeLast
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+$slice = Str::beforeLast('He is married', 'is');
+// 'He'
+}
+```
+
+### between
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+$slice = Str::between('He was born in March', 'He', 'March');
+// 'was born in'
+}
+```
+
+#### Make sure model uses the `DateFilters` trait
 
 ```php
  
