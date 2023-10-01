@@ -4,8 +4,6 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/Fort" isTestSource="false" packagePrefix="Fort\" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Fort/Collections" isTestSource="false" packagePrefix="Fort\PHP" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Fort/Conditionable" isTestSource="false" packagePrefix="Fort\PHP" />
       <sourceFolder url="file://$MODULE_DIR$/src/Fort/PHP/Math" isTestSource="false" packagePrefix="Fort\PHP" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation-contracts" />

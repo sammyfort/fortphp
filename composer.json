@@ -6,10 +6,9 @@
     "autoload": {
         "psr-4": {
             "Fort\\": "src/Fort/",
-            "Fort\\PHP": [
-                "src/Fort/PHP/Math/",
-                "src/Fort/Collections/",
-                "src/Fort/Conditionable/"
+            "Fort\\PHP\\": [
+                "src/Fort/PHP/Math/"
+
             ]
 
         },
