@@ -82,9 +82,5 @@ class DB
     }
 
 
-    public function delete(string $query, $bindings = []): int
-    {
-        // TODO: Implement delete() method.
-    }
 
 }

@@ -1,6 +1,10 @@
  <p align="center">
 <a href="https://github.com/sammyfort/fortphp"><img src="https://img.shields.io/badge/%3C%2F%3E-PHP%20-blue" alt="Build Status"></a>
-<a href="https://packagist.org/packages/fort/php"><img src="https://img.shields.io/github/license/sammyfort/mNotify-laravel"></a>
+<a href="https://packagist.org/packages/fort/php"> <img alt="Packagist Version (custom server)" src="https://img.shields.io/packagist/v/fort/php"></a>
+<img alt="Packagist Downloads (custom server)" src="https://img.shields.io/packagist/dt/fort/php">
+
+<img alt="GitHub" src="https://img.shields.io/github/license/sammyfort/FortPHP">
+
 
  
 
