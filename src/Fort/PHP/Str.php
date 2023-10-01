@@ -6,7 +6,6 @@ use JsonException;
 
 class Str
 {
-    // git remote set-url origin https://sammyfort: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@github.com/sammyfort/FortPHP.git
 
     /**
      * Determine if the provided needle exist in the haystack in case insensitive manner

@@ -32,6 +32,26 @@ class Arr
     }
 
     /**
+     * Determine if the provided needle exist in the haystack in case insensitive manner
+     * @param array $haystack [required] <p>
+     * @return bool returns true if the needle exit, false otherwise
+
+     */
+    public static function valueExist(array $haystack, mixed $needle): bool
+    {
+        $trans = $haystack;
+        $realString = strtr($needle,$trans);
+        foreach($haystack as $val){
+            $realVal = strtr($val,$trans);
+            if(strcasecmp( $realVal, $realString ) == 0){
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    /**
      *Get array in array value
      * @param array $haystack [required] <p>
      * The percentage rate.

@@ -11,7 +11,7 @@
 </p>
  
 
-## PHP and Laravel Global Helpers.
+## PHP Global Helpers.
 
 ## Installation
 
@@ -20,11 +20,89 @@ install with composer
 ```bash
   composer require fort/php
 ```
+# Available PHP Functions
 
+## Table of Contents
+
+* [Math](#Math)
+    * [Percentage](#Percentage)
+    * [Exponential](#Exponential)
+    * [Square Root](#SquareRoot)
+    * [Maximum](#Maximum)
+    * [Minimum](#Minimum)
+    * [Sum](#Summation)
+    * [Sub](#Substraction)
+    * [Divide](#Division)
+    * [Multiply](#Multiplication)
+    
+    
+* [String](#is_mobile)
+    * [valueExist](#str_value_exist)
+   
+* [Array](#array_get)
+    * [array_get](#array_get)
+     
+    
+## Math
+### Percentage
+```php
+ use Fort\PHP\Math;
  
+ Math::percentage(1.5, 200);
+ // 3
+}
+```
+
+### Exponential
+```php
+ use Fort\PHP\Math;
  
-# Guides
-### Laravel Eloquent Filtering by Date
+ Math::expo(2, 2);
+ // 4
+}
+```
+
+### Exponential
+```php
+ use Fort\PHP\Math;
+ 
+ Math::sqrRoot(20);
+  // 4.4721359549996 
+}
+```
+
+### Maximum
+```php
+ use Fort\PHP\Math;
+ 
+ Math::max(2, 2);
+ // 4
+}
+```
+
+
+
+### Sum
+```php
+ use Fort\PHP\Math;
+ 
+ Math::sum(11, 11);
+ // 22
+}
+```
+
+ ## String
+### valueExist
+ ```php
+ use Fort\PHP\Str;
+ 
+ $haystack = array('Fort', 'Everette', 'Mike');
+ // returns true if the needle exist in case insensitive, false otherwise
+ Str::valueExist($haystack, 'foRT');
+  // true
+  
+}
+```
 
 #### Make sure model uses the `DateFilters`
 

@@ -103,14 +103,40 @@ class Math
     }
     /**
      * Parse about any Mathematics calculations
+
+     * The percentage rate.
+     * </p>
+     * @param int|float $number [required] <p>
+     * The total size of data to look for the percentage
+     * </p>
+     * @return int|float returns $percentage on $size
+     */
+    public static function sqrRoot(int|float $number): int|float
+    {
+        return   sqrt($number);
+    }
+    /**
+     * Parse about any Mathematics calculations
      * @param mixed $values [required] <p>
-     * The number to sum.
+     * The maximum number .
      * </p>
      * @return int returns the maximum value in the values param of the first and the second params
      */
     public static function max(mixed $values): mixed
     {
         return max($values);
+    }
+
+    /**
+     * Parse about any Mathematics calculations
+     * @param mixed $values [required] <p>
+     * The minimum number.
+     * </p>
+     * @return int returns the minimum value in the values param of the first and the second params
+     */
+    public static function min(mixed $values): mixed
+    {
+        return min($values);
     }
 
 
