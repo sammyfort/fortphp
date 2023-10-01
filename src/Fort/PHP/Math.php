@@ -2,8 +2,6 @@
 
 
 namespace Fort\PHP;
-use Fort\PHP\Database\DB;
-
 
 use Fort\Exception\LogicException;
 

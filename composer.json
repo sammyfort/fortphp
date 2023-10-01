@@ -1,11 +1,11 @@
 {
     "name": "fort/php",
-    "description": "PHP and Laravel Global helpers",
+    "description": "PHP Global helpers",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Fort\\": "src/Fort/"
+            "Fort\\": "src/Fort"
         },
 
         "files": [
