@@ -6,9 +6,9 @@ namespace Fort\PHP;
 
 class Environment
 {
-    const HOST = DB_HOST;
-    const USER = DB_USER;
-    const DATABASE = DATABASE_NAME;
-    const PASSWORD = DB_PASSWORD;
+    const HOST ='localhost';
+    const USER ='sammy';
+    const PASSWORD ='bigsam';
+    const DATABASE ='fort_php_package';
 
 }

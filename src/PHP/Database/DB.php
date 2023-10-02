@@ -2,7 +2,7 @@
 
 
 namespace Fort\PHP\Database;
-use Closure;
+
 use Exception;
 use Fort\Exception\DBException;
 use Fort\PHP\Environment;
@@ -16,7 +16,7 @@ class DB extends Environment implements DBInterface
     {
         try {
             $handle = new PDO(
-                "mysql:host=".self::HOST.";dbname=".self::DATABASE,
+                "mysql:host=" . self::HOST . ";dbname=" . self::DATABASE .";charset=utf8mb4",
                 self::USER,
                 self::PASSWORD,
                 self::DATABASE);
@@ -33,44 +33,46 @@ class DB extends Environment implements DBInterface
      * @param string $table
      * @param array $attributes
      * @return string|null
-     * @throws DBException
      */
 
     public static function insert(string $table, $attributes = []): ?string
     {
-        try {
-            self::connect()->beginTransaction();
-            $columns = implode(',', array_keys($attributes));
-            $values = implode(',', array_fill(0, count($attributes), '?'));
-            $stmt = self::connect()->prepare(query: "INSERT INTO $table ($columns) VALUES ($values)");
-            $stmt->execute(array_values($attributes));
-            self::connect()->commit();
-        }
-        catch (Exception $e) {
-            self::connect()->rollback();
-            if ($e instanceof DBException) {
-                throw new DBException('Invalid database attribute provided');
-            }
-            return $e->getMessage();
-        }
-        return null;
+        $columns = implode(',', array_keys($attributes));
+        $values = implode(',', array_fill(0, count($attributes), '?'));
+        $stmt = self::connect()->prepare(query: "INSERT INTO $table ($columns) VALUES ($values)");
+        return $stmt->execute(array_values($attributes));
     }
 
-    public static function update(string $table, array $fillables, $bindings = []): int
+    public static function update(string $table, int $id, $attributes = []): ?string
     {
-        $set = [];
-        foreach ($bindings as $column) {
-            if (!in_array($column, $fillables)) {
-                continue;
-            }
-            $set[] = "$column = :$column";
+        $setPart = array();
+        $bindings = array();
+        foreach ($attributes as $key => $value) {
+            $setPart[] = "{$key} = :{$key}";
+            $bindings[":{$key}"] = $value;
         }
-        $set = implode(", ", $set);
-        $stmt = self::connect()->prepare(query: "UPDATE $table SET $set WHERE id = :id");
-        $stmt->execute($fillables);
-        return $stmt;
+        $bindings[":id"] = $id;
+        $sql = "UPDATE {$table} SET " . implode(', ', $setPart) . " WHERE ID = :id";
+        $stmt = self::connect()->prepare($sql);
+        return $stmt->execute($bindings);
+
     }
 
+
+    public static function beginTransaction(): ?bool
+    {
+        return self::connect()->beginTransaction();
+    }
+
+    public static function commit(): ?bool
+    {
+        return self::connect()->commit();
+    }
+
+    public static function rollBack(): ?bool
+    {
+        return self::connect()->rollBack();
+    }
 
 
 }

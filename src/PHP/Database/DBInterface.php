@@ -30,20 +30,37 @@ interface DBInterface
      * Run an update statement against the database.
      *
      * @param string $table
-     * @param array $fillables
-     * @param array $bindings
-     * @return int
+     * @param int $id
+     * @param array $attributes
+     * @return ?string
      */
 
-    public static function update(string $table, array $fillables, $bindings = []): int;
+    public static function update(string $table, int $id, $attributes = []): ?string;
+
 
     /**
-     * Run a delete statement against the database.
+     * Begin a database transaction in the database.
      *
-     * @param string $query
-     * @param  array  $bindings
-     * @return int
+     * @return ?bool
      */
+
+    public static function beginTransaction(): ?bool;
+
+    /**
+     * commit a transaction in the database.
+     *
+     * @return ?bool
+     */
+
+    public static function commit(): ?bool;
+
+    /**
+     * Rollback a transaction in the database.
+     *
+     * @return ?bool
+     */
+
+    public static function rollBack(): ?bool;
 
 
 }

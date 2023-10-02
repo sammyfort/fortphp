@@ -3,6 +3,7 @@
 
 namespace Fort\PHP;
 use JsonException;
+use Traversable;
 
 class Str
 {
@@ -137,6 +138,23 @@ class Str
 
         return static::before(static::after($subject, $from), $to);
     }
+
+    /**
+     * Replace the given value in the given string.
+     *
+     * @param  string|iterable<string>  $search
+     * @param  string|iterable<string>  $replace
+     * @param  string|iterable<string>  $subject
+     * @param  bool  $caseSensitive
+     * @return string|string[]
+     */
+    public static function replace($search, $replace, $subject, $caseSensitive = true)
+    {
+        return $caseSensitive
+            ? str_replace($search, $replace, $subject)
+            : str_ireplace($search, $replace, $subject);
+    }
+
 
 
 
