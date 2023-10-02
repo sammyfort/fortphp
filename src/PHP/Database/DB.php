@@ -9,6 +9,7 @@ use Fort\PHP\Environment;
 use PDO;
 use PDOException;
 
+
 class DB extends Environment implements DBInterface
 {
 
@@ -18,8 +19,7 @@ class DB extends Environment implements DBInterface
             $handle = new PDO(
                 "mysql:host=" . self::HOST . ";dbname=" . self::DATABASE .";charset=utf8mb4",
                 self::USER,
-                self::PASSWORD,
-                self::DATABASE);
+                self::PASSWORD);
             $handle->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $handle;
         } catch (PDOException $e) {

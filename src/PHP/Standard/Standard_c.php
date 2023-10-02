@@ -8,6 +8,8 @@
  *
  */
 
+use Fort\PHP\Support\Env;
+
 if (! function_exists('head')) {
     /**
      * Get the first element of an array. Useful for method chaining.
@@ -127,6 +129,20 @@ if (! function_exists('throw_if')) {
         function with($value, callable $callback = null)
         {
             return is_null($callback) ? $value : $callback($value);
+        }
+    }
+
+    if (! function_exists('env')) {
+        /**
+         * Gets the value of an environment variable.
+         *
+         * @param  string  $key
+         * @param  mixed  $default
+         * @return mixed
+         */
+        function env($key, $default = null)
+        {
+            return Env::get($key, $default);
         }
     }
 }

@@ -7,11 +7,14 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
+    '6e3fae29631ef280660b3cdad06f25a8' => $vendorDir . '/symfony/deprecation-contracts/function.php',
+    '7b11c4dc42b3b3023073cb14e519683c' => $vendorDir . '/ralouphie/getallheaders/src/getallheaders.php',
     'a4a119a56e50fbb293281d9a48007e0e' => $vendorDir . '/symfony/polyfill-php80/bootstrap.php',
+    '320cde22f66dd4f5d3fd621d3e88b98f' => $vendorDir . '/symfony/polyfill-ctype/bootstrap.php',
     'a1105708a18b76903365ca1c4aa61b02' => $vendorDir . '/symfony/translation/Resources/functions.php',
-    'd38257a72e15d728f5178418ca37d58f' => $baseDir . '/src/Global/Standard/arith.php',
-    'ca617d220d79e1aba0ade98821dc25b4' => $baseDir . '/src/Global/Standard/arr.php',
-    'eaa66a5f4387bcc4a234846e01b6382b' => $baseDir . '/src/Global/Standard/datetime.php',
-    '4ecc15c7322cb0af81bceff2ef24f78e' => $baseDir . '/src/Global/Standard/maths.php',
-    '8a12ae4d849df89544745125f39ab8d8' => $baseDir . '/src/Global/Standard/str.php',
+    '37a3dc5111fe8f707ab4c132ef1dbc62' => $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
+    'e7fd51e81adb9bce7f790ab93b374e39' => $baseDir . '/src/PHP/Standard/Standard_c.php',
+    'e40d1eb9e5968248e8385d31a257ee9c' => $baseDir . '/src/Support/Helpers/arr.php',
+    '37c49bd5fd6f1074605564bdd275a3f8' => $baseDir . '/src/Support/Helpers/math.php',
+    '92d5238aa5bbb33c0b31ee687fe34f66' => $baseDir . '/src/Support/Helpers/str.php',
 );
