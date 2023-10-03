@@ -12,6 +12,10 @@ class DB extends Environment implements DBInterface
 {
     use Contracts;
 
+    public static string $table;
+    public static   $column = '';
+    public static $query;
+
     /**
      * Connect to the database set in the .env file
      * </p>
@@ -61,10 +65,25 @@ class DB extends Environment implements DBInterface
 
      */
 
-    public static function table(string $table): mixed
+    public static function table(string $table): string
     {
+       self::$table = $table;
+       return self::$table;
+    }
 
+    public function where($column){
+        self::$column = $column;
+        $col = self::$column;
+        $tab = self::$table;
+        $query = "SELECT $col FROM $tab";
+        $sth = self::connect()->prepare(query:$query);
+        $sth->execute();
+        self::$query  = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $this;
+    }
 
+    public function get(){
+        return self::$query;
     }
 
 
