@@ -12,10 +12,10 @@ interface DBInterface
      * Run connection to the database .
      *
 
-     * @return PDO|string
+     * @return mixed
      */
 
-      public static function connect():PDO|string;
+      public static function connect():mixed;
 
     /**
      * Run an insert statement against the database.
@@ -32,10 +32,10 @@ interface DBInterface
      * @param string $table
      * @param int $id
      * @param array $attributes
-     * @return ?string
+     * @return mixed
      */
 
-    public static function update(string $table, int $id, $attributes = []): ?string;
+    public static function update(string $table, int $id, $attributes = []): mixed;
 
 
     /**
@@ -44,32 +44,32 @@ interface DBInterface
 
      */
 
-    public static function table(string $table): ?string;
+    public static function table(string $table): mixed;
 
 
     /**
      * Begin a database transaction in the database.
      *
-     * @return ?bool
+     * @return mixed
      */
 
-    public static function beginTransaction(): ?bool;
+    public static function beginTransaction(): mixed;
 
     /**
      * commit a transaction in the database.
      *
-     * @return ?bool
+     * @return mixed
      */
 
-    public static function commit(): ?bool;
+    public static function commit(): mixed;
 
     /**
      * Rollback a transaction in the database.
      *
-     * @return ?bool
+     * @return mixed
      */
 
-    public static function rollBack(): ?bool;
+    public static function rollBack(): mixed;
 
 
 }

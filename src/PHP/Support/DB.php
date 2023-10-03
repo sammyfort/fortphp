@@ -15,10 +15,10 @@ class DB extends Environment implements DBInterface
     /**
      * Connect to the database set in the .env file
      * </p>
-     * @return PDO returns the database connection instance
+     * @return mixed returns the database connection instance
      */
 
-    public static function connect(): PDO
+    public static function connect():mixed
     {
         return  Contracts::connection();
     }
@@ -29,10 +29,10 @@ class DB extends Environment implements DBInterface
      * The database table where you are storing the new record
      * @param array $attributes
      * array keys of table columns and array values of the binding
-     * @return string|null
+     * @return mixed
      */
 
-    public static function insert(string $table, $attributes = []): ?string
+    public static function insert(string $table, $attributes = []): mixed
     {
        return self::create($table, $attributes);
     }
@@ -57,10 +57,11 @@ class DB extends Environment implements DBInterface
     /**
      * Select a single database table.
      *
+     * @return mixed
 
      */
 
-    public static function table(string $table): ?string
+    public static function table(string $table): mixed
     {
 
 
@@ -71,29 +72,29 @@ class DB extends Environment implements DBInterface
      * Begin database transaction.
      * This enables you to catch errors if any server problems occurs
      * during database manipulation
-     * @return ?bool
+     * @return mixed
      */
 
-    public static function beginTransaction(): ?bool
+    public static function beginTransaction(): mixed
     {
         return Contracts::startTransaction();
     }
 
     /**
      * Commit database transaction.
-     * @return ?bool
+     * @return mixed
      */
-    public static function commit(): ?bool
+    public static function commit(): mixed
     {
         return Contracts::commitTransaction();
     }
 
     /**
      * Commit database transaction.
-     * @return ?bool
+     * @return mixed
      */
 
-    public static function rollBack(): ?bool
+    public static function rollBack(): mixed
     {
         return Contracts::rollBackTransaction();
     }
