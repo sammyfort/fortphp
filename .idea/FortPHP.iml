@@ -8,7 +8,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Exception" isTestSource="false" packagePrefix="Fort\PHP\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Handler" isTestSource="false" packagePrefix="Fort\PHP\" />
       <sourceFolder url="file://$MODULE_DIR$/src/PHP" isTestSource="false" packagePrefix="Fort\PHP\" />
-      <sourceFolder url="file://$MODULE_DIR$/src/PHP/Database" isTestSource="false" packagePrefix="Fort\PHP\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Framework/Laravel" isTestSource="false" packagePrefix="Fort\PHP\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/PHP/Support" isTestSource="false" packagePrefix="Fort\PHP\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />

@@ -3,7 +3,6 @@
 
 namespace Fort\PHP;
 
-
 class Environment
 {
     const HOST ='localhost';

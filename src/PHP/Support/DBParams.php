@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Fort\PHP;
+namespace Fort\PHP\Support;
 
 
 interface DBParams

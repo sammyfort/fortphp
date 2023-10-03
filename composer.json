@@ -8,7 +8,8 @@
             "Fort\\": "src/",
             "Fort\\PHP\\": [
                 "src/PHP/",
-                "src/PHP/Database/",
+                "src/Framework/Laravel/",
+                "src/PHP/Support/",
                 "src/Exception/",
                 "src/Handler/"
             ]
@@ -16,9 +17,9 @@
 
         "files": [
             "src/PHP/Standard/Standard_c.php",
-            "src/Support/Helpers/arr.php",
-            "src/Support/Helpers/math.php",
-            "src/Support/Helpers/str.php"
+            "src/Framework/Helpers/arr.php",
+            "src/Framework/Helpers/math.php",
+            "src/Framework/Helpers/str.php"
         ]
     },
     "authors": [

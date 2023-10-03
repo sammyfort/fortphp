@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Fort\PHP\Database;
+namespace Fort\PHP\Support;
 
 
 use PDO;
@@ -36,6 +36,15 @@ interface DBInterface
      */
 
     public static function update(string $table, int $id, $attributes = []): ?string;
+
+
+    /**
+     * Select a single database table.
+     *
+
+     */
+
+    public static function table(string $table): ?string;
 
 
     /**
