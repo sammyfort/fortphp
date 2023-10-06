@@ -11,25 +11,36 @@ use PDO;
 trait QueryBuilders
 {
     use Contracts;
-    public function boot(){
+
+    protected static function boot(){
         return self::connection();
 
     }
 
-    public function query($query){
+    protected function query($query){
         return $this->boot()->query($query);
     }
 
-    public function MIN_COL($column, $table){
+    protected function MIN_COL($column, $table){
         return $this->query("SELECT MIN($column) FROM $table");
     }
 
-    public function MAX_COL($column, $table){
+    protected function MAX_COL($column, $table){
         return $this->query("SELECT MAX($column) FROM $table");
     }
 
-    public function fromAll($table){
+    protected function fromAll($table){
 
         return $this->query("SELECT * FROM $table");
+    }
+
+    protected function counter($table){
+
+        return $this->query("SELECT COUNT(*)FROM $table");
+    }
+
+    protected function summ($table){
+
+        return $this->query("SELECT SUM (*)FROM $table");
     }
 }

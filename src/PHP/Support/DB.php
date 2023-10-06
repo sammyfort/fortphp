@@ -2,9 +2,11 @@
 
 
 namespace Fort\PHP\Support;
+
 use Fort\PHP\Builders\QueryBuilders as Builder;
 
 use PDO;
+
 /**
  * @method static mixed connect()
  * @method static mixed insert(string $table, $attributes = [])
@@ -13,9 +15,9 @@ use PDO;
  * @method static mixed commit()
  * @method static mixed rollBack()
  */
-
 class DB extends Fort
 {
+
     protected static $table;
     protected static $query;
     protected $column;
@@ -28,6 +30,7 @@ class DB extends Fort
      * @return mixed
      */
 
+
     public static function table(string $table)
     {
         self::$table = $table;
@@ -39,7 +42,7 @@ class DB extends Fort
     {
         if (is_array($this->column)) {
             $this->column = implode(',', $this->column);
-        }else{
+        } else {
             $this->column = $column;
         }
         $tab = self::$table;
@@ -50,8 +53,8 @@ class DB extends Fort
     public function all()
     {
         return $this->fromAll(self::$table)->fetchAll(PDO::FETCH_ASSOC);
-
     }
+
 
     public function where(string $column, $operator, $value = null): static
     {
@@ -63,13 +66,17 @@ class DB extends Fort
 
     public static function rawQuery(string $query)
     {
-        self::$query = self::connection()->query("$query");
+        self::$query = self::boot()->query("$query");
         return new self();
     }
 
     public function get()
     {
         return self::$query == null ? '[Empty Array ()]' : self::$query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function first(){
+        return self::$query->fetchAll(PDO::FETCH_UNIQUE);
     }
 
     public function orderBy(string $column, string $direction)
@@ -82,14 +89,21 @@ class DB extends Fort
 
     public function max(string $column)
     {
-        return $this->MAX_COL($column, self::$table)->fetchAll(PDO::FETCH_COLUMN);
+        return $this->MAX_COL($column, self::$table)
+            ->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    public function count()
+    {
+        return $this->counter( self::$table)
+            ->fetchAll(PDO::FETCH_COLUMN);
     }
 
     public function min(string $column)
     {
-        return $this->MIN_COL($column, self::$table)->fetchAll(PDO::FETCH_COLUMN);
+        return $this->MIN_COL($column, self::$table)
+            ->fetchAll(PDO::FETCH_COLUMN);
     }
-
 
 
 }

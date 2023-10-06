@@ -8,7 +8,8 @@ class Tester
 {
     public function test(){
      //  DB::table('users')->where('name','=','')->get();
-        DB::rawQuery();
+       // DB::rawQuery('');
+        config('database.DB_DATABASE');
     }
 
 
