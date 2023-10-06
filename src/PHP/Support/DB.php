@@ -2,121 +2,94 @@
 
 
 namespace Fort\PHP\Support;
+use Fort\PHP\Builders\QueryBuilders as Builder;
 
-use Fort\PHP\Environment;
 use PDO;
+/**
+ * @method static mixed connect()
+ * @method static mixed insert(string $table, $attributes = [])
+ * @method static string|null update(string $table, int|string $id, $attributes = [])
+ * @method static mixed beginTransaction()
+ * @method static mixed commit()
+ * @method static mixed rollBack()
+ */
 
-
-
-class DB extends Environment implements DBInterface
+class DB extends Fort
 {
-    use Contracts;
+    protected static $table;
+    protected static $query;
+    protected $column;
 
-    public static string $table;
-    public static   $column = '';
-    public static $query;
 
     /**
-     * Connect to the database set in the .env file
-     * </p>
-     * @return mixed returns the database connection instance
-     */
-
-    public static function connect():mixed
-    {
-        return  Contracts::connection();
-    }
-    /**
-     * Run an insert statement against the database.
      *
-     * @param string $table
-     * The database table where you are storing the new record
-     * @param array $attributes
-     * array keys of table columns and array values of the binding
-     * @return mixed
-     */
-
-    public static function insert(string $table, $attributes = []): mixed
-    {
-       return self::create($table, $attributes);
-    }
-
-    /**
-     * Run an update statement against the database.
-     *
-     * @param string $table
-     * The database table where you are storing the new record
-     *  * @param int|string $id
-     * The primary key of the column you are attempting to update
-     * @param array $attributes
-     * array keys of table columns and array values of the binding
-     * @return string|null
-     */
-    public static function update(string $table, int|string $id, $attributes = []): ?string
-    {
-         return self::updateSingleRecord($table,$id, $attributes);
-    }
-
-
-    /**
      * Select a single database table.
-     *
+     * @param string $table
      * @return mixed
-
      */
 
-    public static function table(string $table): string
+    public static function table(string $table)
     {
-       self::$table = $table;
-       return self::$table;
+        self::$table = $table;
+        return new self();
     }
 
-    public function where($column){
-        self::$column = $column;
-        $col = self::$column;
+
+    public function select($column)
+    {
+        if (is_array($this->column)) {
+            $this->column = implode(',', $this->column);
+        }else{
+            $this->column = $column;
+        }
         $tab = self::$table;
-        $query = "SELECT $col FROM $tab";
-        $sth = self::connect()->prepare(query:$query);
-        $sth->execute();
-        self::$query  = $sth->fetchAll(PDO::FETCH_ASSOC);
+        self::$query = $this->query("SELECT $this->column FROM $tab");
         return $this;
     }
 
-    public function get(){
-        return self::$query;
-    }
-
-
-    /**
-     * Begin database transaction.
-     * This enables you to catch errors if any server problems occurs
-     * during database manipulation
-     * @return mixed
-     */
-
-    public static function beginTransaction(): mixed
+    public function all()
     {
-        return Contracts::startTransaction();
+        return $this->fromAll(self::$table)->fetchAll(PDO::FETCH_ASSOC);
+
     }
 
-    /**
-     * Commit database transaction.
-     * @return mixed
-     */
-    public static function commit(): mixed
+    public function where(string $column, $operator, $value = null): static
     {
-        return Contracts::commitTransaction();
+        $table = self::$table;
+        self::$query = $this->query("SELECT * FROM $table WHERE $column $operator $value");
+        return $this;
     }
 
-    /**
-     * Commit database transaction.
-     * @return mixed
-     */
 
-    public static function rollBack(): mixed
+    public static function rawQuery(string $query)
     {
-        return Contracts::rollBackTransaction();
+        self::$query = self::connection()->query("$query");
+        return new self();
     }
+
+    public function get()
+    {
+        return self::$query == null ? '[Empty Array ()]' : self::$query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function orderBy(string $column, string $direction)
+    {
+        $table = self::$table;
+        self::$query = self::query("SELECT * FROM $table ORDER BY $column $direction");
+        return $this;
+    }
+
+
+    public function max(string $column)
+    {
+        return $this->MAX_COL($column, self::$table)->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    public function min(string $column)
+    {
+        return $this->MIN_COL($column, self::$table)->fetchAll(PDO::FETCH_COLUMN);
+    }
+
 
 
 }

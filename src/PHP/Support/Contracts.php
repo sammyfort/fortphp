@@ -17,7 +17,7 @@ trait Contracts
      * @return mixed returns the database connection instance
      */
 
-    public static function connection(): mixed
+    protected static function connection(): mixed
     {
         try {
             $handle = new PDO(
@@ -42,7 +42,7 @@ trait Contracts
      */
 
 
-    public static function create(string $table, $attributes = []): mixed
+    protected static function create(string $table, $attributes = []): mixed
     {
         try {
             $columns = implode(',', array_keys($attributes));
@@ -69,7 +69,7 @@ trait Contracts
      * @return mixed
      */
 
-    public static function updateSingleRecord(string $table, int|string $id, $attributes = []): mixed
+    protected static function updateSingleRecord(string $table, int|string $id, $attributes = []): mixed
     {
         try {
             $setPart = array();
@@ -95,7 +95,7 @@ trait Contracts
      * @return mixed
      */
 
-    public static function startTransaction(): mixed
+    protected static function startTransaction(): mixed
     {
 
         return self::connection()->beginTransaction();
@@ -106,7 +106,7 @@ trait Contracts
      * @return mixed
      */
 
-    public static function commitTransaction(): mixed
+    protected static function commitTransaction(): mixed
     {
         return self::connection()->commit();
     }
@@ -116,7 +116,7 @@ trait Contracts
      * @return mixed
      */
 
-    public static function rollBackTransaction(): mixed
+    protected static function rollBackTransaction(): mixed
     {
         return self::connection()->rollBack();
     }
