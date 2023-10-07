@@ -8,7 +8,7 @@
  *
  */
 
-use Fort\PHP\Support\Env;
+use Fort\PHP\Concerns\Env;
 
 if (! function_exists('head')) {
     /**

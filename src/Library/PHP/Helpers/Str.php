@@ -714,6 +714,22 @@ class Str
         return str_repeat($string, $times);
     }
 
+    /**
+     * Repeat the given string.
+     *
+
+     * @param  int  $length
+     * @return string
+     */
+
+    public static function random(int $length = 8)
+    {
+        $str = random_bytes($length);
+        $str = base64_encode($str);
+        $str = str_replace(["+", "/", "="], "", $str);
+        return substr($str, 0, $length);
+    }
+
 
 
 

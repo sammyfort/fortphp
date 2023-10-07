@@ -1,16 +1,15 @@
 <?php
 
 
-namespace Fort\PHP\Builders;
+namespace Fort\PHP\Builders\Database;
 
 
-use Fort\PHP\Support\Contracts;
-use Fort\PHP\Support\Fort;
+use Fort\PHP\Contracts\Processor as DBContract;
 use PDO;
 
 trait QueryBuilders
 {
-    use Contracts;
+    use DBContract;
 
     protected static function boot(){
         return self::connection();
@@ -39,8 +38,8 @@ trait QueryBuilders
         return $this->query("SELECT COUNT(*)FROM $table");
     }
 
-    protected function summ($table){
+    protected function sumColumn($table, $column){
 
-        return $this->query("SELECT SUM (*)FROM $table");
+        return $this->query("SELECT SUM($column)FROM $table");
     }
 }

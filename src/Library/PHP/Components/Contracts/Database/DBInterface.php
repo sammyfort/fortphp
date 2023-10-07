@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Fort\PHP\Support;
+namespace Fort\PHP\Contracts\Database;
 
 
 use PDO;

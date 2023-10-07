@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Fort\PHP\Support;
+namespace Fort\PHP\Contracts\Database;
 
 
 use PDO;
@@ -9,7 +9,7 @@ use PDOException;
 use Dotenv\Dotenv;
 
 
-trait Contracts
+trait Processor
 {
 
     /**
@@ -22,7 +22,6 @@ trait Contracts
     protected static function connection(): mixed
     {
 
-        Dotenv::createImmutable(__DIR__)->load();
         try {
             $handle = new PDO(
                 "mysql:host=" . $_ENV["DB_HOST"] . ";dbname=" . $_ENV["DB_DATABASE"] . ";charset=utf8mb4",

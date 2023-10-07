@@ -5,21 +5,20 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Fort\\": "src/",
+            "Fort\\": "src/Library/",
             "Fort\\PHP\\": [
-                "src/PHP/",
-                "src/Framework/Laravel/",
-                "src/PHP/Support/",
-                "src/Exception/",
-                "src/Handler/"
+                "src/Library/PHP/",
+                "src/Library/Framework/Laravel/",
+                "src/Library/PHP/Components/",
+                "src/Library/Exception/",
+                "src/Library/Handler/",
+                "src/Library/PHP/Helpers"
             ]
         },
 
         "files": [
-            "src/PHP/Standard/Standard_c.php",
-            "src/Framework/Helpers/arr.php",
-            "src/Framework/Helpers/math.php",
-            "src/Framework/Helpers/str.php"
+            "src/Library/PHP/Helpers/Standard/Standard_c.php",
+            "src/Library/PHP/Helpers/Standard/helpers.php"
         ]
     },
     "authors": [
