@@ -4,7 +4,7 @@
 namespace Fort\PHP\Builders\Database;
 
 
-use Fort\PHP\Contracts\Processor as DBContract;
+use Fort\PHP\Contracts\Database\Processor as DBContract;
 use PDO;
 
 trait QueryBuilders
