@@ -60,7 +60,7 @@ install with composer
 * [Array](#array_get)
     * [array_get](#array_get)
 
-## Database
+### Database
 
 To start using the database support, you must create a `.env` file just in the root directory of your project and set
 your database credentials like below
