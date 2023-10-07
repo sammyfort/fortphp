@@ -35,13 +35,13 @@ install with composer
     * [orWhere](#orWhere)
 
 * [String](#String)
-  * [valueExist](#valueExist)
-  * [contains](#contains)
-  * [between](#between)
-  * [after](#after)
-  * [after](#afterLast)
-  * [before](#before)
-  * [beforeLast](#beforelast)
+    * [valueExist](#valueExist)
+    * [contains](#contains)
+    * [between](#between)
+    * [after](#after)
+    * [after](#afterLast)
+    * [before](#before)
+    * [beforeLast](#beforelast)
 
 * [Math](#Math)
     * [Percentage](#Percentage)
@@ -53,8 +53,6 @@ install with composer
     * [Sub](#Substraction)
     * [Divide](#Division)
     * [Multiply](#Multiplication)
-
-
 
 
 * [Array](#array_get)
@@ -166,6 +164,7 @@ foreach ($unpaidOrders as $item){
   echo  $item['amount'];
 }
 ```
+
 ### Raw Queries
 
 ```php
@@ -179,7 +178,9 @@ foreach ($items as $item){
  // echo ... ;
 }
 ```
+
 ### Select
+
 ```php
 <?php
 use Fort\PHP\Support\DB;
@@ -196,6 +197,7 @@ foreach ($adult as $individual){
 ```
 
 ### All
+
 ```php
 <?php
 use Fort\PHP\Support\DB;
@@ -205,6 +207,7 @@ DB::table('invoices')->all();
 ```
 
 ### First
+
 ```php
 <?php
 use Fort\PHP\Support\DB;
@@ -214,6 +217,7 @@ DB::table('users')->where('email', '=','sam@example.com')->first();
 ```
 
 ### Where
+
 ```php
 <?php
 use Fort\PHP\Support\DB;
@@ -222,6 +226,7 @@ DB::table('invoices')->where('amount_paid', '<', 1)->get();
 ```
 
 ### OrWhere
+
 ```php
 <?php
 use Fort\PHP\Support\DB;
@@ -232,6 +237,7 @@ DB::table('invoices')->where('amount_paid', '<', 1)
 ```
 
 ### Sum
+
 ```php
 <?php
 use Fort\PHP\Support\DB;
@@ -242,6 +248,7 @@ DB::table('invoices')->sum('amount_paid');
 ```
 
 ### Count
+
 ```php
 <?php
 use Fort\PHP\Support\DB;
@@ -251,6 +258,7 @@ use Fort\PHP\Support\DB;
 ```
 
 ### Max
+
 ```php
 <?php
 use Fort\PHP\Support\DB;
@@ -261,6 +269,7 @@ DB::table('invoices')->max('amount');
 ```
 
 ### Min
+
 ```php
 <?php
 use Fort\PHP\Support\DB;
