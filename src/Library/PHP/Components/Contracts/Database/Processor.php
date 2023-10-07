@@ -6,7 +6,7 @@ namespace Fort\PHP\Contracts\Database;
 
 use PDO;
 use PDOException;
-use Dotenv\Dotenv;
+
 
 
 trait Processor
@@ -15,11 +15,11 @@ trait Processor
     /**
      * Connect to the database set in the .env file
      * </p>
-     * @return mixed returns the database connection instance
+     * @return string|PDO returns the database connection instance
      */
 
 
-    protected static function connection(): mixed
+    protected static function connection(): string|PDO
     {
 
         try {

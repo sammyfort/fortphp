@@ -5,7 +5,6 @@
 
 <img alt="GitHub" src="https://img.shields.io/github/license/sammyfort/FortPHP">
 </p>
- 
 
 ## PHP Global Helpers.
 
@@ -16,10 +15,33 @@ install with composer
 ```bash
   composer require fort/php
 ```
-# Available [PHP](#Table of Content for PHP) Functions
- 
+
+# Available [PHP](Table of Content for PHP) Functions
 
 ## Table of Content for PHP
+
+* [Database](#Database)
+    * [Connect](#Test DB connection)
+    * [Insert](#Insert Record)
+    * [Update](#Update Record)
+    * [Transactions](#Transactions)
+    * [Queries](#Queries)
+    * [Where](#Where)
+    * [All](#all)
+    * [Sum](#Count)
+    * [Max](#Max)
+    * [Min](#Min)
+    * [First](#First)
+    * [orWhere](#orWhere)
+
+* [String](#String)
+  * [valueExist](#valueExist)
+  * [contains](#contains)
+  * [between](#between)
+  * [after](#after)
+  * [after](#afterLast)
+  * [before](#before)
+  * [beforeLast](#beforelast)
 
 * [Math](#Math)
     * [Percentage](#Percentage)
@@ -31,23 +53,227 @@ install with composer
     * [Sub](#Substraction)
     * [Divide](#Division)
     * [Multiply](#Multiplication)
-    
-    
-* [String](#String)
-    * [valueExist](#valueExist)
-    * [contains](#contains)
-    * [between](#between)
-    * [after](#after)
-    * [after](#afterLast)
-    * [before](#before)
-  * [beforeLast](#beforelast)
-   
+
+
+
+
 * [Array](#array_get)
     * [array_get](#array_get)
-     
-    
+
+## Database
+
+To start using the database support, you must create a `.env` file just in the root directory of your project and set
+your database credentials like below
+
+``` dotenv
+DB_DATABASE=fort_project
+DB_PORT=3306
+DB_HOST=localhost
+DB_USER=sam
+DB_PASSWORD=sammyabc
+```
+
+Add the below codes in your index.php or entry point of your application;
+
+```php
+<?php
+require_once __DIR__ . "/vendor/autoload.php";
+\Dotenv\Dotenv::createImmutable(__DIR__)->load();
+ 
+
+```
+
+### Test DB connection
+
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+DB::connect();
+
+// PDO Objected connected
+```
+
+### Insert Record
+
+```php
+<?php
+use Fort\PHP\Support\DB;
+use Carbon\Carbon;
+
+DB::insert('users', [
+ 'name'=> 'Phil Everette',
+ 'email'=> 'pever@example.com',
+ 'phone'=> '0205550368',
+ 'created_at'=> Carbon::now() // fort/php already ships with carbon
+]);
+
+// @return (bool) true, false otherwise
+```
+
+### Update Record
+
+```php
+<?php
+use Fort\PHP\Support\DB;
+use Carbon\Carbon;
+
+DB::update('users', 1, [
+ 'name'=> 'Sam Everette',
+ 'email'=> 'pever@example.com',
+ 'phone'=> '0205550368',
+ 'created_at'=> Carbon::now()  
+]);
+
+// 1 is the id of the record to update
+// @return (bool) true, false otherwise
+```
+
+### Transactions
+
+```php
+<?php
+use Fort\PHP\Support\DB;
+ 
+
+public function createInvoice(){
+  try {
+  DB::beginTransaction();
+  //start some database queries
+  DB::commit();
+  // commit the queries
+ }
+ 
+ catch (Exception $exception){
+   DB::rollBack();
+  // rollback the transaction in case of error
+ }
+}
+```
+
+### Queries
+
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+$unpaidOrders = DB::table('orders')
+  ->where('payment_status', '=', 'unpaid')
+  ->orderBy('id', 'desc')
+  ->get();
+  
+foreach ($unpaidOrders as $item){
+  echo  $item['amount'];
+}
+```
+### Raw Queries
+
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+$items = DB::rawQuery("SELECT users.id FROM users, 
+ INNER JOIN orders ON users.id = orders.user_id")->get();
+  
+foreach ($items as $item){
+ // echo ... ;
+}
+```
+### Select
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+$adult = DB::table('users')
+  ->select(['name', 'age'])
+  ->where('age', '>', 18)
+  ->orderBy('id', 'desc')
+  ->get();
+  
+foreach ($adult as $individual){
+  echo  $individual['age'];
+}
+```
+
+### All
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+DB::table('invoices')->all();
+// @returns all invoices
+```
+
+### First
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+DB::table('users')->where('email', '=','sam@example.com')->first();
+// @returns the record in the query set
+```
+
+### Where
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+DB::table('invoices')->where('amount_paid', '<', 1)->get();
+```
+
+### OrWhere
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+DB::table('invoices')->where('amount_paid', '<', 1)
+  ->orWhere('amount_paid', '=', false)
+  ->get();
+```
+
+### Sum
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+DB::table('invoices')->sum('amount_paid');
+// @returns (int|float) a sum of the specified column
+
+```
+
+### Count
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+  DB::table('orders')->count();
+  // @returns total number of orders
+```
+
+### Max
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+DB::table('invoices')->max('amount');
+// @returns (int|float) the highest number in the column
+
+```
+
+### Min
+```php
+<?php
+use Fort\PHP\Support\DB;
+
+DB::table('invoices')->min('amount');
+// @returns (int|float) the smallest number in the column
+
+```
+
 ## Math
+
 ### Percentage
+
 ```php
 <?php
  use Fort\PHP\Math;
@@ -58,6 +284,7 @@ install with composer
 ```
 
 ### Exponential
+
 ```php
 <?php
  use Fort\PHP\Math;
@@ -68,6 +295,7 @@ install with composer
 ```
 
 ### SquareRoot
+
 ```php
 <?php
  use Fort\PHP\Math;
@@ -78,6 +306,7 @@ install with composer
 ```
 
 ### Summation
+
 ```php
 <?php
  use Fort\PHP\Math;
@@ -88,6 +317,7 @@ install with composer
 ```
 
 ### Subtraction
+
 ```php
 <?php
  use Fort\PHP\Math;
@@ -98,6 +328,7 @@ install with composer
 ```
 
 ### Subtraction
+
 ```php
 <?php
  use Fort\PHP\Math;
@@ -108,6 +339,7 @@ install with composer
 ```
 
 ### Subtraction
+
 ```php
 <?php
  use Fort\PHP\Math;
@@ -118,6 +350,7 @@ install with composer
 ```
 
 ### Maximum
+
 ```php
 <?php
  use Fort\PHP\Math;
@@ -129,6 +362,7 @@ install with composer
 ```
 
 ### Minimum
+
 ```php
 <?php
  use Fort\PHP\Math;
@@ -139,9 +373,10 @@ install with composer
 }
 ```
 
+## String
 
- ## String
 ### valueExist
+
  ```php
 <?php
  use Fort\PHP\Str;
@@ -152,7 +387,9 @@ install with composer
   // true 
 }
 ```
+
 ### contains
+
  ```php
 <?php
  use Fort\PHP\Str;
@@ -163,6 +400,7 @@ $slice = Str::contains('I was raised in Ghana', 'Ghana');
 ```
 
 ### after
+
  ```php
 <?php
  use Fort\PHP\Str;
@@ -173,6 +411,7 @@ $slice = Str::after('His name is fort', 'His name');
 ```
 
 ### afterLast
+
  ```php
 <?php
  use Fort\PHP\Str;
@@ -183,6 +422,7 @@ $slice = Str::after('His name is fort', 'His name');
 ```
 
 ### before
+
  ```php
 <?php
  use Fort\PHP\Str;
@@ -193,6 +433,7 @@ $slice = Str::before('He is married', 'married');
 ```
 
 ### beforeLast
+
  ```php
 <?php
  use Fort\PHP\Str;
@@ -203,6 +444,7 @@ $slice = Str::beforeLast('He is married', 'is');
 ```
 
 ### between
+
  ```php
 <?php
  use Fort\PHP\Str;
@@ -242,6 +484,7 @@ class Invoice extends Model
 }
 
 ```
+
 #### Once the `DateFilters` has been implemented in your model, you may access them in your controller like below
 
 ```php
@@ -334,9 +577,11 @@ class InvoiceController extends Controller
 }
  
 ```
+
 # Standard
 
 #### General php helpers
+
 ```php
 class User{
 

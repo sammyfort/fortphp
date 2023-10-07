@@ -2,6 +2,7 @@
 /** @noinspection PhpMissingFieldTypeInspection */
 
 
+
 namespace Fort\PHP\Contracts\Database;
 
 use Fort\Exception\LogicException;
@@ -90,7 +91,7 @@ abstract class Fort extends BuildQueries
 
     public static function beginTransaction(): mixed
     {
-        return Processor::startTransaction();
+        return self::startTransaction();
     }
 
     /**
@@ -99,7 +100,7 @@ abstract class Fort extends BuildQueries
      */
     public static function commit(): mixed
     {
-        return Processor::commitTransaction();
+        return self::commitTransaction();
     }
 
     /**
@@ -109,7 +110,7 @@ abstract class Fort extends BuildQueries
 
     public static function rollBack(): mixed
     {
-        return Processor::rollBackTransaction();
+        return self::rollBackTransaction();
     }
 
     /**
@@ -180,7 +181,7 @@ abstract class Fort extends BuildQueries
 
     public static function rawQuery(string $query)
     {
-        self::$query = self::boot()->query("$query");
+        self::$query = $query;
         return new static();
     }
 

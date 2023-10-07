@@ -6,7 +6,7 @@ namespace Fort\PHP\Builders\Database;
 
 class BuildQueries
 {
-    public function performSelectColumnOperation($column){
+    protected function performSelectColumnOperation($column){
         if (is_array($column)) {
             return implode(',', $column);
         } else {
@@ -20,36 +20,36 @@ class BuildQueries
         return "SELECT * FROM $table";
     }
 
-    public function selectColumnFromTable($column, $table): string
+    protected function selectColumnFromTable($column, $table): string
     {
 
         return "SELECT $column FROM $table";
     }
 
-    public function performWhereOperation($column, $operator, $value = null): string
+    protected function performWhereOperation($column, $operator, $value = null): string
     {
 
         return " WHERE $column $operator $value";
     }
 
-    public function performOrWhereClause(string $column, $operator, $value = null): string
+    protected function performOrWhereClause(string $column, $operator, $value = null): string
     {
         return " OR $column $operator $value";
     }
 
-    public function orderByClause(string $column, $direction): string
+    protected function orderByClause(string $column, $direction): string
     {
         return " ORDER BY $column $direction";
     }
 
-    public function whereNotNullOperation(string $column): string
+    protected function whereNotNullOperation(string $column): string
     {
 
         return " OR $column IS NOT NULL";
 
     }
 
-    public function whereNullOperation(string $column): string
+    protected function whereNullOperation(string $column): string
     {
         return " OR $column IS NULL";
     }
