@@ -16,9 +16,9 @@ install with composer
   composer require fort/php
 ```
 
-# Available [PHP](Table of Content for PHP) Functions
+# Available PHP Functions
 
-## Table of Content for PHP
+## Table of Content
 
 * [Database](#Database)
     * [Connect](#Test DB connection)
