@@ -6,6 +6,7 @@ namespace Fort\PHP\Support;
 
 use PDO;
 use PDOException;
+use Dotenv\Dotenv;
 
 
 trait Contracts
@@ -17,13 +18,16 @@ trait Contracts
      * @return mixed returns the database connection instance
      */
 
+
     protected static function connection(): mixed
     {
+
+        Dotenv::createImmutable(__DIR__)->load();
         try {
             $handle = new PDO(
-                "mysql:host=" . env('DB_HOST') . ";dbname=" . env('DB_DATABASE') . ";charset=utf8mb4",
-                env('DB_USER'),
-                env('DB_PASSWORD'));
+                "mysql:host=" . $_ENV["DB_HOST"] . ";dbname=" . $_ENV["DB_DATABASE"] . ";charset=utf8mb4",
+                $_ENV["DB_USER"],
+                $_ENV["DB_PASSWORD"]);
             $handle->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $handle;
         } catch (PDOException $e) {
