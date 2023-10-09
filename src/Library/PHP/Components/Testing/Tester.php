@@ -12,7 +12,8 @@ class Tester
 {
     public function test(){
 
-        Http::get('', [''], ['']);
+        DB::table('');
+
 
     }
 

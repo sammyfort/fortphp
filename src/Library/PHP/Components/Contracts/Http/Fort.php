@@ -18,4 +18,9 @@ abstract class Fort
         return self::postRequest($uri, $data, $headers);
     }
 
+    public static function put(string $uri, array $data,  array $headers = null){
+
+        return self::putRequest($uri, $data, $headers);
+    }
+
 }
