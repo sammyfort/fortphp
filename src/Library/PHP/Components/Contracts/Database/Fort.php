@@ -5,15 +5,17 @@
 
 namespace Fort\PHP\Contracts\Database;
 
+use Exception;
 use Fort\Exception\LogicException;
 use Fort\PHP\Builders\Database\BuildQueries;
 use Fort\PHP\Builders\Database\QueryBuilders as Builder;
+use Fort\PHP\Contracts\Http\Requests as HttpRequest;
 
 use PDO;
 
 abstract class Fort extends BuildQueries
 {
-    use Processor, Builder;
+    use Processor, Builder, HttpRequest ;
 
     /**
      * @property string $table
@@ -124,108 +126,209 @@ abstract class Fort extends BuildQueries
     /**
      *
      * Select a single database table.
+     * * @method table()
      * @param string $table
      * @return Fort
      */
 
-
-    public static function table(string $table)
+    public static function table(string $table): static
     {
         self::$table = $table;
         self::$query .= self::selectAllFromTable($table);
         return new static();
     }
 
+    /**
+     *
+     * Select a database column and interact with.
+     * @method select(string $column)
+     * @param string $column
+     * @return self
+     */
 
-    public function select($column)
+    public function select(string $column): self
     {
         $this->column = $this->performSelectColumnOperation($column);
         self::$query = $this->selectColumnFromTable($this->column, self::$table);
         return $this;
     }
 
-    public function all()
+    /**
+     *
+     * Select a single database table.
+     * @method all()
+     * @return array
+     */
+
+    public function all():  array
     {
         return $this->fromAll(self::$table)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
-    public function where(string $column, $operator, $value = null): static
+    /**
+     *
+     * Chain a where method to database query.
+     * @return mixed
+     */
+    public function where(string $column, $operator, $value = null): self
     {
-
         self::$query .= $this->performWhereOperation($column, $operator, $value);
-
         return $this;
     }
 
-    public function orWhere(string $column, $operator, $value = null): static
+    /**
+     *
+     * Chain a orWhere method to database query.
+     * @param string $column
+     * @param $operator
+     * @param null $value
+     * @return self
+     */
+
+    public function orWhere(string $column, $operator, $value = null): self
     {
         self::$query .= $this->performOrWhereClause($column, $operator, $value);
-
         return $this;
     }
 
-    public function whereNull(string $column): static
+    /**
+     *
+     * Chain a whereNull method to database query.
+     * @param string $column
+     * @return self
+     */
+
+    public function whereNull(string $column): self
     {
         self::$query .= $this->whereNullOperation($column);
-
         return $this;
     }
 
-    public function whereNotNull(string $column): static
+    /**
+     *
+     * Chain a whereNull method to database query.
+     * @param string $column
+     * @return self
+     */
+
+    public function whereNotNull(string $column): self
     {
         self::$query .= $this->whereNotNullOperation($column);
         return $this;
     }
 
 
-    public static function rawQuery(string $query)
+    /**
+     *
+     * Perform a raw sql query with is method and chain a ->get() to get results.
+     * @param string $query
+     * @return self
+     */
+
+    public static function rawQuery(string $query):self
     {
         self::$query = $query;
         return new static();
     }
 
-    public function get()
+    /**
+     *
+     * Get the result set of the database query.
+     * @param null $return_type
+     * @return array|string
+     */
+
+    public function get($return_type = null): array|string
     {
-        return $this->query(self::$query)->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            return $this->query(self::$query)->fetchAll($return_type == 'object' ? PDO::FETCH_OBJ : PDO::FETCH_ASSOC);
+        }
+        catch (Exception $exception){
+            return  $exception->getMessage();
+        }
     }
 
-    public function first()
+    /**
+     *
+     * Get the first result set of the database query.
+     * @return array|string
+     */
+
+    public function first(): array|string
     {
-        return $this->query(self::$query)->fetchAll(PDO::FETCH_UNIQUE);
+        try {
+            return $this->query(self::$query)->fetchAll(PDO::FETCH_ORI_FIRST);
+        }
+        catch (Exception $exception){
+            return  $exception->getMessage();
+        }
     }
 
-    public function orderBy(string $column, string $direction)
-    {
+    /**
+     *
+     * Add order by to the database query.
+     * @param string $column
+     * @param string $direction
+     * @return self
+     */
 
+    public function orderBy(string $column, string $direction):self
+    {
         self::$query .= $this->orderByClause($column, $direction);
         return $this;
     }
 
 
-    public function max(string $column)
+    /**
+     *
+     * Get the maximum number of a column.
+     * @param string $column
+     * @return array
+     */
+
+    public function max(string $column): array
     {
         return $this->MAX_COL($column, self::$table)
             ->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    public function count()
+    /**
+     *
+     * Count records of a table.
+     * @return array
+     */
+
+    public function count(): array
     {
         return $this->counter(self::$table)
             ->fetchAll(PDO::FETCH_COLUMN);
-
     }
 
-    public function sum($column)
+    /**
+     *
+     * Sum all all records in the specified column.
+     * @param $column
+     * @return array
+     */
+
+    public function sum($column): array
     {
         return $this->sumColumn(self::$table, $column)->fetchAll(PDO::FETCH_COLUMN);
-
     }
 
-    public function min(string $column)
+    /**
+     *
+     * Get the minimum number of a column.
+     * @param string $column
+     * @return array
+     */
+
+    public function min(string $column): array
     {
         return $this->MIN_COL($column, self::$table)
             ->fetchAll(PDO::FETCH_COLUMN);
     }
+
+
 
 }

@@ -2,6 +2,7 @@
 
 
 use Fort\PHP\Elevators\Container;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\VarDumper\VarDumper;
 
 if (!function_exists('app')) {
@@ -48,7 +49,7 @@ if (! function_exists('config')) {
 
 if (!function_exists('dd')) {
 
-    function dd(mixed ...$vars): never
+    function dd(mixed ...$vars)
     {
         if (!in_array(\PHP_SAPI, ['cli', 'phpdbg'], true) && !headers_sent()) {
             header('HTTP/1.1 500 Internal Server Error');
@@ -65,3 +66,5 @@ if (!function_exists('dd')) {
         exit(1);
     }
 }
+
+

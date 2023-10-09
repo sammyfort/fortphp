@@ -5,6 +5,8 @@ namespace Fort\PHP\Elevators;
 use ArrayAccess;
 use Closure;
 use Exception;
+use Fort\PHP\Components\Elevators\EntryNotFoundException;
+use Fort\PHP\Components\Elevators\Util;
 use Fort\PHP\Elevators\BindingResolutionException;
 use Fort\PHP\Elevators\CircularDependencyException;
 use Fort\PHP\Elevators\ContainerFace as ContainerContract;
