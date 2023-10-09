@@ -21,9 +21,9 @@ install with composer
 ## Table of Content
 
 * [Database](#Database)
-    * [Connect](#Test DB connection)
-    * [Insert](#Insert Record)
-    * [Update](#Update Record)
+    * [Connect](#test-db-connection)
+    * [Insert](#insert-record)
+    * [Update](#update-record)
     * [Transactions](#Transactions)
     * [Queries](#Queries)
     * [Where](#Where)
