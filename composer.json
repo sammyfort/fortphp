@@ -53,7 +53,6 @@
         "symfony/http-foundation": "^6.2",
         "symfony/http-kernel": "^6.2",
         "symfony/mailer": "^6.2",
-      "ext-http": "*",
       "ext-curl": "*"
     }
 }
