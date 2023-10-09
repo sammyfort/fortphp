@@ -2180,12 +2180,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "36e0b6db76fd815e9683fa8319a82b0608c2f239"
+                "reference": "e48d33866c48850a635cf46d9cf2ff0f299891f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/36e0b6db76fd815e9683fa8319a82b0608c2f239",
-                "reference": "36e0b6db76fd815e9683fa8319a82b0608c2f239",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/e48d33866c48850a635cf46d9cf2ff0f299891f6",
+                "reference": "e48d33866c48850a635cf46d9cf2ff0f299891f6",
                 "shasum": ""
             },
             "require": {
@@ -2244,7 +2244,7 @@
                 "symfony/var-exporter": "^6.2|^7.0",
                 "twig/twig": "^2.13|^3.0.4"
             },
-            "time": "2023-10-06T08:49:47+00:00",
+            "time": "2023-10-08T06:31:26+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3584,8 +3584,8 @@
         },
         {
             "name": "vonage/client",
-            "version": "dev-main",
-            "version_normalized": "dev-main",
+            "version": "4.0.0",
+            "version_normalized": "4.0.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Vonage/vonage-php-sdk.git",
@@ -3603,7 +3603,6 @@
                 "vonage/client-core": "^4.0"
             },
             "time": "2023-01-16T11:02:48+00:00",
-            "default-branch": true,
             "type": "library",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",

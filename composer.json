@@ -52,6 +52,6 @@
     "symfony/http-kernel": "^6.2",
     "symfony/mailer": "^6.2",
     "ext-curl": "*",
-    "vonage/client": "dev-main"
+    "vonage/client": "4.0"
   }
 }

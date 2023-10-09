@@ -3,7 +3,7 @@
         'name' => 'fort/php',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c56eb003b637bad1c77cc868ef1eb00884bd82ad',
+        'reference' => 'd00020d7584c5ecdb3f8f5b8f81552212280b1d9',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -40,7 +40,7 @@
         'fort/php' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c56eb003b637bad1c77cc868ef1eb00884bd82ad',
+            'reference' => 'd00020d7584c5ecdb3f8f5b8f81552212280b1d9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -355,7 +355,7 @@
         'symfony/http-kernel' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => '36e0b6db76fd815e9683fa8319a82b0608c2f239',
+            'reference' => 'e48d33866c48850a635cf46d9cf2ff0f299891f6',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-kernel',
             'aliases' => array(),
@@ -509,14 +509,12 @@
             'dev_requirement' => false,
         ),
         'vonage/client' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
+            'pretty_version' => '4.0.0',
+            'version' => '4.0.0.0',
             'reference' => '9a21c83fee90e5da410146b965383bebccfc93b0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../vonage/client',
-            'aliases' => array(
-                0 => '9999999-dev',
-            ),
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'vonage/client-core' => array(
