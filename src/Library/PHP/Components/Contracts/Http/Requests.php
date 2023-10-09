@@ -17,7 +17,7 @@ trait Requests
             CURLOPT_TIMEOUT => $config['timeout'] ?: 30,
             CURLOPT_HTTP_VERSION => $config['http_version'] ?: CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_HTTPHEADER => $headers ?: ["Content-Type" => "application/json"],
+            CURLOPT_HTTPHEADER => $headers ?: ["Content-Type: application/json"],
         ));
         $response = curl_exec($curl);
         $err = curl_error($curl);
@@ -29,7 +29,7 @@ trait Requests
         return $response;
     }
 
-    protected static function postRequest(string $uri, array $data, array $headers)
+    protected static function postRequest(string $uri, array $data, array $headers = null)
     {
         //open connection
         $ch = curl_init();
@@ -38,7 +38,7 @@ trait Requests
         curl_setopt($ch, CURLOPT_URL, $uri);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers ?: ["Content-Type" => "application/json"]);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers ?: ["Content-Type: application/json"]);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         //execute post
@@ -54,12 +54,11 @@ trait Requests
     {
         //open connection
         $ch = curl_init();
-
         //set the url, number of POST vars, POST data
         curl_setopt($ch, CURLOPT_URL, $uri);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
         curl_setopt($ch, CURLOPT_POSTFIELDS,  http_build_query($data));
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers ?: ["Content-Type" => "application/json"]);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers ?: ["Content-Type: application/json"]);
 
         //So that curl_exec returns the contents of the cURL; rather than echoing it
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -71,6 +70,41 @@ trait Requests
             return $err;
         }
         return $result;
+    }
+
+    protected static function deleteRequest(string $uri, array $headers=null){
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $uri);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers ?: ["Content-Type: application/json"]);
+        $result = curl_exec($ch);
+        $error = curl_error($ch);
+        if ($error){
+            return $error;
+        }
+        return $result;
+
+    }
+
+    protected static function multipart(string $uri, array $data, string $headers= null){
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: multipart/form-data","Accept: multipart/form-data", $headers]);
+        curl_setopt($ch, CURLOPT_URL, $uri);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        $result = curl_exec($ch);
+        $err = curl_error($ch);
+        if ($err){
+            return $err;
+        }
+
+        return $result;
+
     }
 
 }

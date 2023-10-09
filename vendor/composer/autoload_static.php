@@ -14,22 +14,33 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '07d7f1a47144818725fd8d91a907ac57' => __DIR__ . '/..' . '/laminas/laminas-diactoros/src/functions/create_uploaded_file.php',
+        'da94ac5d3ca7d2dbab84ce561ce72bfd' => __DIR__ . '/..' . '/laminas/laminas-diactoros/src/functions/marshal_headers_from_sapi.php',
+        '3d97c8dcdfba8cb85d3b34f116bb248b' => __DIR__ . '/..' . '/laminas/laminas-diactoros/src/functions/marshal_method_from_sapi.php',
+        'e6f3bc6883e449ab367280b34158c05b' => __DIR__ . '/..' . '/laminas/laminas-diactoros/src/functions/marshal_protocol_version_from_sapi.php',
+        'de95e0ac670b27c84ef8c5ac41fc1b34' => __DIR__ . '/..' . '/laminas/laminas-diactoros/src/functions/normalize_server.php',
+        'b6c2870932b0250c10334a86dcb33c7f' => __DIR__ . '/..' . '/laminas/laminas-diactoros/src/functions/normalize_uploaded_files.php',
+        'd02cf21124526632320d6f20b1bbf905' => __DIR__ . '/..' . '/laminas/laminas-diactoros/src/functions/parse_cookie_header.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
+        '5c70426340c07411ceee79728a2304a8' => __DIR__ . '/..' . '/vonage/nexmo-bridge/src/autoload.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
-        'e7fd51e81adb9bce7f790ab93b374e39' => __DIR__ . '/../..' . '/src/PHP/Standard/Standard_c.php',
-        '2d6420f044c5eaa2893fa4b6f9f92448' => __DIR__ . '/../..' . '/src/Framework/Helpers/arr.php',
-        '82b06e4db4630d8a051b180f4016e01e' => __DIR__ . '/../..' . '/src/Framework/Helpers/math.php',
-        '3d5606086a6bf418a70b1a8b12ade351' => __DIR__ . '/../..' . '/src/Framework/Helpers/str.php',
+        '02fb3e4189977b4ba029687884d7e7c2' => __DIR__ . '/../..' . '/src/Library/PHP/Helpers/Standard/Standard_c.php',
+        '69575bb6eb7c6256f7d772998ab24e34' => __DIR__ . '/../..' . '/src/Library/PHP/Helpers/Standard/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'v' => 
         array (
             'voku\\' => 5,
+        ),
+        'V' => 
+        array (
+            'Vonage\\NexmoBridge\\' => 19,
+            'Vonage\\' => 7,
         ),
         'S' => 
         array (
@@ -69,6 +80,12 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
             'Psr\\Clock\\' => 10,
             'PhpOption\\' => 10,
         ),
+        'L' => 
+        array (
+            'Lcobucci\\JWT\\' => 13,
+            'Lcobucci\\Clock\\' => 15,
+            'Laminas\\Diactoros\\' => 18,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -104,6 +121,14 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'Vonage\\NexmoBridge\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vonage/nexmo-bridge/src',
+        ),
+        'Vonage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vonage/client-core/src',
         ),
         'Symfony\\Polyfill\\Php83\\' => 
         array (
@@ -222,6 +247,18 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
+        'Lcobucci\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lcobucci/jwt/src',
+        ),
+        'Lcobucci\\Clock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lcobucci/clock/src',
+        ),
+        'Laminas\\Diactoros\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laminas/laminas-diactoros/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -240,15 +277,16 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         ),
         'Fort\\PHP\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/PHP',
-            1 => __DIR__ . '/../..' . '/src/Framework/Laravel',
-            2 => __DIR__ . '/../..' . '/src/PHP/Support',
-            3 => __DIR__ . '/../..' . '/src/Exception',
-            4 => __DIR__ . '/../..' . '/src/Handler',
+            0 => __DIR__ . '/../..' . '/src/Library/PHP',
+            1 => __DIR__ . '/../..' . '/src/Library/Framework/Laravel',
+            2 => __DIR__ . '/../..' . '/src/Library/PHP/Components',
+            3 => __DIR__ . '/../..' . '/src/Library/Exception',
+            4 => __DIR__ . '/../..' . '/src/Library/Handler',
+            5 => __DIR__ . '/../..' . '/src/Library/PHP/Helpers',
         ),
         'Fort\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/src/Library',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
