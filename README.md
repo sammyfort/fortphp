@@ -33,39 +33,51 @@ install with composer
     * [Min](#Min)
     * [First](#First)
     * [orWhere](#orWhere)
-  
 
-* [Http Requests](#Http Request)
+
+* [Http Requests](#http-requests)
     * [Post Request](#post-request)
     * [Get Request](#get-request)
     * [Put / Patch Request](#putpatch-request)
     * [Delete Request](#delete-request)
     * [Multipart Request](#postmultipart-request)
-    
 
-* [String](#String)
-    * [valueExist](#valueExist)
-    * [contains](#contains)
-    * [between](#between)
-    * [after](#after)
-    * [after](#afterLast)
-    * [before](#before)
-    * [beforeLast](#beforelast)
 
-* [Math](#Math)
+* [String](#string-helpers)
+    * [Str valueExist](#str-valueexist)
+    * [Str contains](#str-contains)
+    * [Str between](#str-between)
+    * [Str after](#str-after)
+    * [Str afterLast](#str-afterlast)
+    * [Str before](#str-before)
+    * [Str beforeLast](#str-beforelast)
+
+
+* [Array](#array-helpers)
+    * [Arr Maximum](#arr-maximum)
+    * [Arr Minimum](#arr-minimum)
+    * [Arr valueExist](#arr-valueexist)
+    * [Arr Accessible](#arr-accessible)
+    * [Arr Where](#arr-where)
+    * [Arr First](#arr-first)
+    * [Arr Last](#arr-last)
+    * [Arr Wrap](#arr-wrap)
+  
+  
+* [SMS](#sms)
+    * [sendSMS](#send-sms)
+
+
+* [Math](#math-helpers)
     * [Percentage](#Percentage)
     * [Exponential](#Exponential)
     * [Square Root](#SquareRoot)
     * [Maximum](#Maximum)
     * [Minimum](#Minimum)
     * [Sum](#Summation)
-    * [Sub](#Substraction)
+    * [Sub](#subtraction)
     * [Divide](#Division)
     * [Multiply](#Multiplication)
-
-
-* [Array](#array_get)
-    * [array_get](#array_get)
 
 ### Database
 
@@ -324,7 +336,6 @@ DB::table('invoices')->min('amount');
 
 ```
 
-
 ### Delete Request
 
 ```php
@@ -347,7 +358,232 @@ DB::table('invoices')->min('amount');
 
 ```
 
-## Math
+## String Helpers
+
+### Str valueExist
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+ $haystack = array('Fort', 'Everette', 'Mike');
+ // returns true if the needle exist in case insensitive, false otherwise
+ Str::valueExist($haystack, 'foRT');
+  // true
+```
+
+### Str contains
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+$slice = Str::contains('I was raised in Ghana', 'Ghana');
+// 'true'
+
+```
+
+### Str after
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+$slice = Str::after('His name is fort', 'His name');
+// ' is fort'
+
+```
+
+### Str afterLast
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+ $slice = Str::afterLast('App\Http\Controllers\Controller', '\\');
+ // 'Controller'
+
+```
+
+### Str before
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+$slice = Str::before('He is married', 'married');
+// 'He is'
+
+```
+
+### Str beforeLast
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+$slice = Str::beforeLast('He is married', 'is');
+// 'He'
+
+```
+
+### Str between
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+$slice = Str::between('He was born in March', 'He', 'March');
+// 'was born in'
+
+```
+
+## Array Helpers
+
+### Arr Maximum
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['Fort'=> 3, 'Phil'=> 0, 'Ever'=> 1];
+
+print_r(Arr::maximum($array));
+
+// Fort
+```
+
+### Arr Minimum
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['Fort'=> 3, 'Phil'=> 1, 'Ever'=> 0];
+
+print_r(Arr::minimum($array));
+
+// Ever
+```
+
+### Arr valueExist
+
+Checks in an array if the `needle` exist in the array in case-insensitive manner. @returns true if the needle exist,
+false otherwise.
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['Fort', 'Phil', 'Ever'];
+
+ print_r(Arr::valueExist($array, 'FORT'));
+
+// true
+```
+
+### Arr accessible
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['Fort' => 1, 'Phil'=> 2, 'Ever' => 3];
+
+ print_r(Arr::accessible($array));
+
+// true
+
+$array = "fort";
+
+ print_r(Arr::accessible($array));
+
+// false
+```
+
+### Arr where
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = [100, '200', '300', '400', '500'];
+ 
+$filtered = Arr::where($array, function ($value, $key) {
+    return is_numeric($value);
+});
+ 
+// [0 => '100']
+```
+
+### Arr first
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = [1, 15, 35];
+ 
+$first = Arr::first($array, function ($value, $key) {
+    return $value >= 20;
+});
+ 
+// 35
+```
+
+### Arr last
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = [1, 15, 35, 40];
+ 
+$first = Arr::last($array, function ($value, $key) {
+    return $value >= 40;
+});
+ 
+// 40
+ 
+ 
+```
+
+### Arr wrap
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$string = 'PHP is fun';
+ 
+$array = Arr::wrap($string);
+ 
+// ['PHP is fun']
+```
+
+## SMS
+To start using the SMS support, you must set the following variables in your `.env`  file.
+The `SMS_DRIVER` can only be set to  [`velstack`](https://sms.velstack.com) or [`vonage`](https://vonage.com)
+These are the support drivers.
+
+``` dotenv
+SMS_DRIVER=velstack
+SMS_API_KEY=sk_test__
+SMS_SECRET_KEY=
+SMS_SENDER_ID=BUSINESS
+```
+### Send SMS
+
+```php
+<?php
+ use Fort\PHP\Support\SMS;
+ 
+ return SMS::send('+233205550368', 'Hello, API messaging is just awesome');
+```
+
+
+
+## Math Helpers
 
 ### Percentage
 
@@ -368,7 +604,6 @@ DB::table('invoices')->min('amount');
  
  Math::expo(2, 2);
  // 4
-}
 ```
 
 ### SquareRoot
@@ -378,8 +613,7 @@ DB::table('invoices')->min('amount');
  use Fort\PHP\Math;
  
  Math::sqrRoot(20);
-  // 4.4721359549996 
-}
+  // 4.4721359549996
 ```
 
 ### Summation
@@ -390,7 +624,6 @@ DB::table('invoices')->min('amount');
  
  Math::sum(11, 11);
  // 22
-}
 ```
 
 ### Subtraction
@@ -401,7 +634,6 @@ DB::table('invoices')->min('amount');
  
  Math::sub(10, 11);
  // -1
-}
 ```
 
 ### Subtraction
@@ -412,7 +644,6 @@ DB::table('invoices')->min('amount');
  
  Math::div(19, 5);
  // 3.8
-}
 ```
 
 ### Subtraction
@@ -423,7 +654,6 @@ DB::table('invoices')->min('amount');
  
  Math::mul(21, 8);
  // 168
-}
 ```
 
 ### Maximum
@@ -434,8 +664,6 @@ DB::table('invoices')->min('amount');
  
  Math::max(2, 6, 4);
  // 6
- 
-}
 ```
 
 ### Minimum
@@ -446,89 +674,7 @@ DB::table('invoices')->min('amount');
  
  Math::min(2, 6, 4);
  // 2
- 
-}
-```
 
-## String
-
-### valueExist
-
- ```php
-<?php
- use Fort\PHP\Str;
-
- $haystack = array('Fort', 'Everette', 'Mike');
- // returns true if the needle exist in case insensitive, false otherwise
- Str::valueExist($haystack, 'foRT');
-  // true 
-}
-```
-
-### contains
-
- ```php
-<?php
- use Fort\PHP\Str;
-
-$slice = Str::contains('I was raised in Ghana', 'Ghana');
-// 'true'
-}
-```
-
-### after
-
- ```php
-<?php
- use Fort\PHP\Str;
-
-$slice = Str::after('His name is fort', 'His name');
-// ' is fort'
-}
-```
-
-### afterLast
-
- ```php
-<?php
- use Fort\PHP\Str;
-
- $slice = Str::afterLast('App\Http\Controllers\Controller', '\\');
- // 'Controller'
-}
-```
-
-### before
-
- ```php
-<?php
- use Fort\PHP\Str;
-
-$slice = Str::before('He is married', 'married');
-// 'He is'
-}
-```
-
-### beforeLast
-
- ```php
-<?php
- use Fort\PHP\Str;
-
-$slice = Str::beforeLast('He is married', 'is');
-// 'He'
-}
-```
-
-### between
-
- ```php
-<?php
- use Fort\PHP\Str;
-
-$slice = Str::between('He was born in March', 'He', 'March');
-// 'was born in'
-}
 ```
 
 #### Make sure model uses the `DateFilters` trait
@@ -643,115 +789,9 @@ class InvoiceController extends Controller
 
         return Invoice::LastQuarter()->get();
         // returns all invoices from last 3 months
-    }
-    
-    
-
-
- 
-
-   
+    }  
 }
  
 ```
 
-# Standard
-
-#### General php helpers
-
-```php
-class User{
-
- public function string()
-  {
-  
-    return fort_random_string(32);
-    // generate random string string with a length of 32     
-  }
-   
-
-  
-  public function addN()
-  {
-  
-    return fort_sum(3, 7);
-    // 10     
-  }
-  
-  public function subtractN()
-  {
-  
-    return fort_sub(4, 8);
-    // -4     
-  }
-   
-   public function mulN()
-  {
-  
-    return fort_multiply(4, 8);
-    // 32     
-  }
-  
-     public function divN()
-  {
-  
-    return fort_div(20, 2);
-    // 10     
-  }
-  
-   public function percentage()
-  {
-  
-    return fort_percentage(1.5, 200);
-    // 3    
-  }
-  
-    public function squareRoot()
-  {
-  
-    return fort_square_root_of(20);
-    // 4.4721359549996 
-  }
-  
-    public function exponential()
-  {
-  
-    return fort_expo(2, 2);
-    // 2 exponent 2
-    // returns 4
-  }
-  
-  
-     public function maxValInArray()
-  {
-    $collection = ['first'=> 10, 'second'=> 20, 'third'=>30];
-    return fort_max_array_value($collection);
-   
-    // returns 'third'
-  }
-  
-  
-       public function minValInArray()
-  {
-    $collection = ['everett'=> 1, 'phill'=> 2, 'fort'=>3];
-    return fort_min_array_value($collection);
-   
-    // returns 'everett'
-  }
-  
-  
-         public function arrayInArrayValue()
-  {
-    $collection = [
-    ['everett'=> 1, 'phill'=> 2, 'fort'=>3]
-    ];
-    return fortMaxArrayInArrayValue($collection,'everett');
-   
-    // returns 1
-  }
-   
-}
- 
-```
- 
  
