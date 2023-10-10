@@ -6,8 +6,6 @@
 <img alt="GitHub" src="https://img.shields.io/github/license/sammyfort/FortPHP">
 </p>
 
-## PHP Global Helpers.
-
 ## Installation
 
 install with composer
@@ -563,8 +561,8 @@ $array = Arr::wrap($string);
 
 ## SMS
 To start using the SMS support, you must set the following variables in your `.env`  file.
-The `SMS_DRIVER` can only be set to  [`velstack`](https://sms.velstack.com) or [`vonage`](https://vonage.com)
-These are the support drivers.
+The `SMS_DRIVER` can only be set to  [`velstack`](https://sms.velstack.com) or [`vonage`](https://vonage.com).
+These are the supported drivers.
 
 ``` dotenv
 SMS_DRIVER=velstack
