@@ -12,7 +12,7 @@ use Fort\PHP\Support\SMS;
 class Tester
 {
     public function test(){
-        SMS::sendQuick();
+
 
 
 

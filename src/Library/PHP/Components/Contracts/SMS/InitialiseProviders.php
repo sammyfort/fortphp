@@ -13,12 +13,12 @@ class InitialiseProviders
 {
     protected function vonageCredentials(): Client
     {
-        $basic  = new  Basic($_ENV['SMS_API_KEY'], $_ENV['SMS_SECRET_KEY']);
+        $basic  = new Basic($_ENV['SMS_API_KEY'], $_ENV['SMS_SECRET_KEY']);
         return new Client($basic);
     }
 
     protected function toVonage($recipient, string $message){
-        $result =  $this->vonageCredentials()->sms()->send(
+        $result = $this->vonageCredentials()->sms()->send(
               new SMS($recipient, $_ENV['SMS_SENDER_ID'], $message)
           );
 
@@ -32,7 +32,7 @@ class InitialiseProviders
     }
 
     protected function forwardToVelstack(array $data){
-        return Http::post('https://sms.velstack.com',
+        return Http::post('https://sms.velstack.com/api/quick/sms',
             $data,
             [
                 "Accept: application/json",

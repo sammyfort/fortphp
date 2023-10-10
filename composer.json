@@ -31,7 +31,6 @@
     "nesbot/carbon": "^2.16",
     "ext-pdo": "*",
     "vlucas/phpdotenv": "^5.4.1",
-    "guzzlehttp/guzzle": "^7.5",
     "ext-ctype": "*",
     "ext-filter": "*",
     "ext-hash": "*",

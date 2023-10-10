@@ -8,18 +8,18 @@ use Exception;
 use Fort\PHP\Contracts\SMS\InitialiseProviders as Providers;
 
 
+
 class smsDriver extends Providers
 {
 
-        protected function forwardToProvider($recipient, $message): mixed
+        protected static function forwardToProvider($recipient, $message): mixed
         {
-           // $path =  __DIR__. "/../../../../../../../../../../.env";
-            $path2 =  __DIR__. "/.env";
-            if (!file_exists($path2)){
-                return new Exception('.env file is missing from project',404);
+            $path =  __DIR__. "/../../../../../../../../../.env";
+            if (!file_exists($path)){
+                return new \RuntimeException('.env file is missing from project',404);
             }
             if ($_ENV['SMS_DRIVER'] == null or $_ENV['SMS_DRIVER'] == '' ){
-                return new Exception('Make you have set [SMS_DRIVER] variable in .env file and not empty',404);
+                return new \RuntimeException('Make you have set [SMS_DRIVER] variable in .env file and not empty',404);
             }
 
             if ($_ENV['SMS_DRIVER'] == 'velstack'){
@@ -27,10 +27,9 @@ class smsDriver extends Providers
             }
 
             if ($_ENV['SMS_DRIVER'] == 'vonage'){
-                return   (new Providers())->toVonage($recipient, $message);
+                return  (new Providers())->toVonage($recipient, $message);
             }
             return null;
-
         }
 
 

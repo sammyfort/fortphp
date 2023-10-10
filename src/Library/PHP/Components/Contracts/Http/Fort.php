@@ -19,9 +19,9 @@ abstract class Fort extends Driver
      * @return mixed
      */
 
-    public function send($recipient, string $message): mixed
+    public static function send($recipient, string $message): mixed
     {
-        return $this->forwardToProvider($recipient, $message);
+        return self::forwardToProvider($recipient, $message);
     }
 
     /**
