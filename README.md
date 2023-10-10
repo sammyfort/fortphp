@@ -33,6 +33,15 @@ install with composer
     * [Min](#Min)
     * [First](#First)
     * [orWhere](#orWhere)
+  
+
+* [Http Requests](#Http Request)
+    * [Post Request](#post-request)
+    * [Get Request](#get-request)
+    * [Put / Patch Request](#putpatch-request)
+    * [Delete Request](#delete-request)
+    * [Multipart Request](#postmultipart-request)
+    
 
 * [String](#String)
     * [valueExist](#valueExist)
@@ -279,6 +288,65 @@ DB::table('invoices')->min('amount');
 
 ```
 
+## Http Requests
+
+### Post Request
+
+```php
+<?php
+ use Fort\PHP\Support\Http;
+ 
+ Http::post('https://api.velstack.com/send',[$data],
+            ["Accept: application/json", "Authorization: Bearer API_KEY"]);
+
+```
+
+### Get Request
+
+```php
+<?php
+ use Fort\PHP\Support\Http;
+ 
+ Http::get('https://api.velstack.com/resource', 
+            ["Accept: application/json", "Authorization: Bearer API_KEY}"],
+            ['timeout'=> 20, 'return_transfer'=> true, 'maxredirs'=> 10, 'encoding'=> ""]);
+
+```
+
+### Put/Patch Request
+
+```php
+<?php
+ use Fort\PHP\Support\Http;
+ 
+ Http::put('https://api.velstack.com/resource', [$data],
+            ["Accept: application/json", "Authorization: Bearer API_KEY}"]);
+
+```
+
+
+### Delete Request
+
+```php
+<?php
+ use Fort\PHP\Support\Http;
+ 
+ Http::delete('https://api.velstack.com/resource', 
+            ["Accept: application/json", "Authorization: Bearer API_KEY}"]);
+
+```
+
+### PostMultipart Request
+
+```php
+<?php
+ use Fort\PHP\Support\Http;
+ 
+ Http::asPostMultipart('https://api.velstack.com/send', [$data],
+             "Authorization: Bearer API_KEY");
+
+```
+
 ## Math
 
 ### Percentage
@@ -289,7 +357,7 @@ DB::table('invoices')->min('amount');
  
  Math::percentage(1.5, 200);
  // 3
-}
+
 ```
 
 ### Exponential

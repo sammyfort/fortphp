@@ -91,7 +91,7 @@ abstract class Fort extends Driver
      * @return bool|string
      */
 
-    protected static function asPostMultipart(string $uri, array $data, string $headers = null): bool|string
+    protected static function asPostMultipart(string $uri, array $data, array $headers = null): bool|string
     {
         return static::multipart($uri, $data, $headers);
     }

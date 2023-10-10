@@ -12,9 +12,7 @@ use Fort\PHP\Support\SMS;
 class Tester
 {
     public function test(){
-
-
-
+        Http::send();
 
 
     }
