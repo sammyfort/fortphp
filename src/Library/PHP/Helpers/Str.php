@@ -3,10 +3,54 @@
 
 namespace Fort\PHP;
 use JsonException;
+use Ramsey\Uuid\Uuid;
 use Traversable;
+use voku\helper\ASCII;
 
 class Str
 {
+    /**
+     * The cache of snake-cased words.
+     *
+     * @var array
+     */
+    protected static $snakeCache = [];
+
+    /**
+     * The cache of camel-cased words.
+     *
+     * @var array
+     */
+    protected static $camelCache = [];
+
+    /**
+     * The cache of studly-cased words.
+     *
+     * @var array
+     */
+    protected static $studlyCache = [];
+
+    /**
+     * The callback that should be used to generate UUIDs.
+     *
+     * @var callable|null
+     */
+    protected static $uuidFactory;
+
+    /**
+     * The callback that should be used to generate ULIDs.
+     *
+     * @var callable|null
+     */
+    protected static $ulidFactory;
+
+    /**
+     * The callback that should be used to generate random strings.
+     *
+     * @var callable|null
+     */
+    protected static $randomStringFactory;
+
 
     /**
      * Determine if the provided needle exist in the haystack in case insensitive manner
@@ -155,6 +199,18 @@ class Str
             : str_ireplace($search, $replace, $subject);
     }
 
+    /**
+     * Transliterate a UTF-8 value to ASCII.
+     *
+     * @param  string  $value
+     * @param  string  $language
+     * @return string
+     */
+    public static function ascii($value, $language = 'en')
+    {
+        return ASCII::to_ascii((string) $value, $language);
+    }
+
 
 
 
@@ -229,9 +285,9 @@ class Str
     /**
      * Convert the case of a string.
      *
-     * @param  string  $string
-     * @param  int  $mode
-     * @param  string  $encoding
+     * @param string $string
+     * @param int $mode
+     * @param string|null $encoding
      * @return string
      */
     public static function convertCase(string $string, int $mode = MB_CASE_FOLD, ?string $encoding = 'UTF-8')
@@ -339,8 +395,8 @@ class Str
             $pattern = [$pattern];
         }
 
-        foreach ($pattern as $pattern) {
-            $pattern = (string) $pattern;
+        foreach ($pattern as $patter) {
+            $pattern = (string) $patter;
 
             // If the given value is an exact match we can of course return true right
             // from the beginning. Otherwise, we will translate asterisks and do an
@@ -431,7 +487,7 @@ class Str
             (?:\# (?:[\pL\pN\-._\~!$&\'()*+,;=:@/?]|%[0-9A-Fa-f]{2})* )?       # a fragment (optional)
         $~ixu';
 
-        return preg_match(str_replace('LARAVEL_PROTOCOLS', $protocolList, $pattern), $value) > 0;
+        return preg_match(str_replace('PROTOCOLS', $protocolList, $pattern), $value) > 0;
     }
 
     /**
@@ -586,8 +642,8 @@ class Str
             $pattern = [$pattern];
         }
 
-        foreach ($pattern as $pattern) {
-            $pattern = (string) $pattern;
+        foreach ($pattern as $patter) {
+            $pattern = (string) $patter;
 
             if (preg_match($pattern, $value) === 1) {
                 return true;
@@ -677,6 +733,27 @@ class Str
         return implode('', $parts).self::plural($lastWord, $count);
     }
 
+    /**
+     * Convert a value to studly caps case.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public static function studly($value)
+    {
+        $key = $value;
+
+        if (isset(static::$studlyCache[$key])) {
+            return static::$studlyCache[$key];
+        }
+
+        $words = explode(' ', static::replace(['-', '_'], ' ', $value));
+
+        $studlyWords = array_map(fn ($word) => static::ucfirst($word), $words);
+
+        return static::$studlyCache[$key] = implode($studlyWords);
+    }
+
 
 
     /**
@@ -730,7 +807,64 @@ class Str
         return substr($str, 0, $length);
     }
 
+    /**
+     * Convert a string to snake case.
+     *
+     * @param  string  $value
+     * @param  string  $delimiter
+     * @return string
+     */
+    public static function snake($value, $delimiter = '_')
+    {
+        $key = $value;
 
+        if (isset(static::$snakeCache[$key][$delimiter])) {
+            return static::$snakeCache[$key][$delimiter];
+        }
+
+        if (! ctype_lower($value)) {
+            $value = preg_replace('/\s+/u', '', ucwords($value));
+
+            $value = static::lower(preg_replace('/(.)(?=[A-Z])/u', '$1'.$delimiter, $value));
+        }
+
+        return static::$snakeCache[$key][$delimiter] = $value;
+    }
+
+    /**
+     * Generate a UUID (version 4).
+     *
+     * @return \Ramsey\Uuid\UuidInterface
+     */
+    public static function uuid()
+    {
+        return static::$uuidFactory
+            ? call_user_func(static::$uuidFactory)
+            : Uuid::uuid4();
+    }
+
+    /**
+     * Remove all strings from the casing caches.
+     *
+     * @return void
+     */
+    public static function flushCache()
+    {
+        static::$snakeCache = [];
+        static::$camelCache = [];
+        static::$studlyCache = [];
+    }
+
+    /**
+     * Determine if a given string is 7 bit ASCII.
+     *
+     * @param  string  $value
+     * @return bool
+     */
+    public static function isAscii($value)
+    {
+        return ASCII::is_ascii((string) $value);
+    }
 
 
     /**
@@ -919,6 +1053,17 @@ class Str
         $title = preg_replace('!['.preg_quote($separator).'\s]+!u', $separator, $title);
 
         return trim($title, $separator);
+    }
+
+    /**
+     * Convert a string to kebab case.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public static function kebab($value)
+    {
+        return static::snake($value, '-');
     }
 
 

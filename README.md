@@ -44,11 +44,45 @@ install with composer
 * [String](#string-helpers)
     * [Str valueExist](#str-valueexist)
     * [Str contains](#str-contains)
-    * [Str between](#str-between)
+    * [Str containsAll](#str-containsall)
     * [Str after](#str-after)
     * [Str afterLast](#str-afterlast)
     * [Str before](#str-before)
     * [Str beforeLast](#str-beforelast)
+    * [Str between](#str-between)
+    * [Str replace](#str-replace)
+    * [Str charAt](#str-charat)
+    * [Str endsWith](#str-endswith)
+    * [Str finish](#str-finish)
+    * [Str is](#str-is)
+    * [Str length](#str-length)
+    * [Str words](#str-words)
+    * [Str wordCount](#str-wordcount)
+    * [Str limit](#str-limit)
+    * [Str padBoth](#str-padboth)
+    * [Str padLeft](#str-padleft)
+    * [Str padRight](#str-padright)
+    * [Str random](#str-random)
+    * [Str uuid](#str-uuid)
+    * [Str isAscii](#str-isascii)
+    * [Str isUuid](#str-isuuid)
+    * [Str upper](#str-upper)
+    * [Str lower](#str-lower)
+    * [Str title](#str-title)
+    * [Str slug](#str-slug)
+    * [Str snake](#str-snake)
+    * [Str studly](#str-studly)
+    * [Str kebab](#str-kebab)
+    * [Str mask](#str-mask)
+    * [Str start](#str-start)
+    * [Str reverse](#str-reverse)
+    * [Str substr](#str-substr)
+    * [Str substrCount](#str-substrcount)
+    * [Str substrReplace](#str-substrreplace)
+    * [Str replaceFirst](#str-replacefirst)
+    * [Str replaceLast](#str-replacelast)
+    * [Str lcfirst](#str-lcfirst)
+    * [Str ucfirst](#str-ucfirst)
 
 
 * [Array](#array-helpers)
@@ -60,8 +94,25 @@ install with composer
     * [Arr First](#arr-first)
     * [Arr Last](#arr-last)
     * [Arr Wrap](#arr-wrap)
-  
-  
+    * [Arr Add](#arr-add)
+    * [Arr Set](#arr-set)
+    * [Arr Shuffle](#arr-shuffle)
+    * [Arr Collapse](#arr-collapse)
+    * [Arr Divide](#arr-divide)
+    * [Arr Except](#arr-except)
+    * [Arr Exists](#arr-exists)
+    * [Arr Flatten](#arr-flatten)
+    * [Arr Forget](#arr-forget)
+    * [Arr Get](#arr-get)
+    * [Arr Has](#arr-has)
+    * [Arr hasAny](#arr-hasany)
+    * [Arr isAssoc](#arr-isassoc)
+    * [Arr Prepend](#arr-prepend)
+    * [Arr PLuck](#arr-pluck)
+    * [Arr Pull](#arr-pull)
+    * [Arr Query](#arr-query)
+    * [Arr Random](#arr-random)
+
 * [SMS](#sms)
     * [sendSMS](#send-sms)
 
@@ -150,18 +201,22 @@ DB::update('users', 1, [
 
 ```php
 <?php
+
 use Fort\PHP\Support\DB;
  
 
-public function createInvoice(){
-  try {
+public function createInvoice()
+{
+  try
+   {
   DB::beginTransaction();
   //start some database queries
   DB::commit();
   // commit the queries
  }
  
- catch (Exception $exception){
+ catch (Exception $exception)
+ {
    DB::rollBack();
   // rollback the transaction in case of error
  }
@@ -381,6 +436,18 @@ $slice = Str::contains('I was raised in Ghana', 'Ghana');
 
 ```
 
+### Str containsAll
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+
+$string = Str::containsAll('My dad is from UK but i live in the US', ['UK', 'US']);
+
+// 'true'
+
+```
+
 ### Str after
 
  ```php
@@ -434,6 +501,461 @@ $slice = Str::beforeLast('He is married', 'is');
 $slice = Str::between('He was born in March', 'He', 'March');
 // 'was born in'
 
+```
+
+### Str replace
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$string = 'Fort is a brilliant !';
+ 
+$replaced = Str::replace('brilliant', 'genius', $string);
+ 
+// Fort is a genius !
+
+```
+
+### Str charAt
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$string = 'Fort !';
+ 
+$char = Str::charAt($string, 3);
+ 
+// t
+
+```
+
+### Str endsWith
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$string = 'Everette is 1 year old';
+ 
+$string = Str::endsWith($string, 'old');
+ 
+// true
+
+```
+
+### Str finish
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$string = 'Everette is 1 year old';
+ 
+$string = Str::finish($string, '!');
+ 
+// Everette is 1 year old!
+```
+
+### Str is
+
+The Str::is method determines if a given string matches a given pattern. Asterisks may be used as wildcard values:
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$matches = Str::is('foo*', 'foobar');
+ 
+// true
+ 
+$matches = Str::is('baz*', 'foobar');
+ 
+// false
+
+```
+
+### Str isUuid
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$isUuid = Str::isUuid('a0a2a2d2-0b87-4a18-83f2-2529882be2de');
+ 
+// true
+ 
+$isUuid = Str::isUuid('laravel');
+ 
+// false
+
+```
+
+### Str length
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$isUuid = Str::length('Velstack');
+ 
+// 8
+
+```
+
+### Str words
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+  Str::words('Though he came, he could not make it.', 3, ' >>>');
+ 
+// Though he came, >>>
+
+```
+
+### Str wordCount
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+  Str::words('He was born in July');
+ 
+// 5
+
+```
+
+### Str limit
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$truncated = Str::limit('He is a good man', 4, ' ...');
+ 
+// He is ...
+
+```
+
+### Str padBoth
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$padded = Str::padBoth('sammy', 10, '_');
+ 
+// 'sammy'
+ 
+$padded = Str::padBoth('James', 10);
+ 
+// '  sammy   '
+```
+
+### Str padLeft
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$padded = Str::padLeft('sammy', 6, '@');
+ 
+// @sammy'
+ 
+$padded = Str::padLeft('sammy', 6);
+ 
+// '    sammy'
+```
+
+### Str padRight
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ $padded = Str::padRight('sammy', 10, '-');
+ 
+// 'sammy-----'
+ 
+$padded = Str::padRight('sammy', 10);
+ 
+// 'sammy     '
+```
+
+### Str random
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$random = Str::random(5);
+
+// 3Cewm
+```
+
+### Str uuid
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$output = Str::uuid();
+
+// a0a2a2d2-0b87-4a18-83f2-2529882be2de
+ 
+ 
+```
+
+### Str isAscii
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$isAscii = Str::isAscii('Accra');
+ 
+// true
+ 
+$isAscii = Str::isAscii('ü');
+ 
+// false
+ 
+```
+
+### Str isUuid
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$string = Str::isUuid('a0a2a2d2-0b87-4a18-83f2-2529882be2de');
+ 
+// true
+ 
+$string = Str::isUuid('Accra');
+ 
+// false
+ 
+```
+
+### Str upper
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$converted = Str::upper('fort');
+ 
+// FORT
+```
+
+### Str lower
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$converted = Str::lower('FORT');
+ 
+// fort
+```
+
+### Str title
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$converted = Str::title('how to make money from home');
+ 
+// How To Make Money From Home
+```
+
+### Str slug
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$converted = Str::slug('how to make money from home','-');
+ 
+// How-To-Make-Money-From-Home
+```
+
+### Str snake
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$output = Str::snake('FootBall', '_');
+ 
+// Foot_Ball
+```
+
+### Str studly
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ $output = Str::studly('foo_bar');
+ 
+// FooBar
+```
+
+### Str kebab
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$output = Str::kebab('fooBar');
+ 
+// foo-bar
+```
+
+### Str mask
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$string = Str::mask('samuelfort@example.com', '*', -15, 3);
+ 
+// sam***@example.com
+```
+
+### Str start
+
+The Str::start method adds a single instance of the given value to a string if it does not already start with that
+value:
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$adjusted = Str::start('sammy_fort', '@');
+ 
+// @sammy_fort
+ 
+$adjusted = Str::start('@fortameyaw', '@');
+ 
+// @fortameyaw
+```
+
+### Str reverse
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$reversed = Str::reverse('Hello');
+ 
+// olleH
+```
+
+### Str substr
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+ 
+$converted = Str::substr('The Symfony PHP Framework', 4, 7);
+ 
+// Laravel
+```
+
+### Str substrCount
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$count = Str::substrCount('If you like ice cream, you will like snow cones.', 'like');
+ 
+// 2
+```
+
+### Str substrReplace
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$result = Str::substrReplace('1300', ':', 2);
+// 13:
+ 
+$result = Str::substrReplace('1300', ':', 2, 0);
+// 13:00
+```
+
+### Str replaceFirst
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$string  = 'He is lazy';
+
+$output = Str::replaceFirst('He', 'Tom', $string);
+ 
+// Tom is lazy
+```
+
+### Str replaceLast
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$string  = 'Kwaku is a handsome boy';
+
+$output = Str::replaceLast('a', 'the', $string);
+ 
+// Kwaku is the handsome boy
+```
+
+### Str lcfirst
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$output = Str::lcfirst('Handsome');
+ 
+// handsome
+```
+
+### Str ucfirst
+
+ ```php
+<?php
+ use Fort\PHP\Str;
+ 
+$output = Str::ucfirst('beautiful');
+ 
+// Beautiful
 ```
 
 ## Array Helpers
@@ -499,6 +1021,19 @@ $array = "fort";
 // false
 ```
 
+### Arr whereNotNull
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = [0, null];
+ 
+$filtered = Arr::whereNotNull($array);
+ 
+// [0 => 0]
+```
+
 ### Arr where
 
 ```php
@@ -559,10 +1094,299 @@ $array = Arr::wrap($string);
 // ['PHP is fun']
 ```
 
+### Arr add
+
+The Arr::shuffle method randomly shuffles the items in the array:
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = Arr::add(['name' => 'Desk'], 'price', 100);
+ 
+// ['name' => 'Desk', 'price' => 100]
+ 
+$array = Arr::add(['name' => 'Desk', 'price' => null], 'price', 100);
+ 
+// ['name' => 'Desk', 'price' => 100]
+```
+
+### Arr set
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['orders' => ['desk' => ['price' => 100]]];
+ 
+Arr::set($array, 'orders.desk.price', 200);
+ 
+// ['orders' => ['desk' => ['price' => 200]]]
+```
+
+### Arr shuffle
+
+The Arr::shuffle method randomly shuffles the items in the array:
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = Arr::shuffle([1, 2, 3, 4, 5]);
+ 
+// [3, 2, 5, 1, 4] - (generated randomly)
+```
+
+### Arr collapse
+
+```php
+<?php
+ use Fort\PHP\Arr;
+$array = Arr::collapse([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+ 
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+### Arr divide
+
+The Arr::divide method returns two arrays: one containing the keys and the other containing the values of the given
+array:
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+[$keys, $values] = Arr::divide(['name' => 'Desk']);
+ 
+// $keys: ['name']
+ 
+// $values: ['Desk']
+```
+
+### Arr except
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['name' => 'Desk', 'price' => 100];
+ 
+$filtered = Arr::except($array, ['price']);
+ 
+// ['name' => 'Desk']
+```
+
+### Arr exists
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['name' => 'Desk', 'price' => 100];
+$array = ['name' => 'John Doe', 'age' => 17];
+ 
+$exists = Arr::exists($array, 'name');
+ 
+// true
+
+$exists = Arr::exists($array, 'salary');
+ 
+// false
+```
+
+### Arr flatten
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['name' => 'Joe', 'languages' => ['PHP', 'Ruby']];
+ 
+$flattened = Arr::flatten($array);
+ 
+// ['Joe', 'PHP', 'Ruby']
+ 
+// false
+```
+
+### Arr forget
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['products' => ['desk' => ['price' => 100]]];
+ 
+Arr::forget($array, 'products.desk');
+ 
+// ['products' => []]
+```
+
+### Arr get
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['products' => ['desk' => ['price' => 100]]];
+ 
+$price = Arr::get($array, 'products.desk.price');
+ 
+// 100
+```
+
+### Arr has
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['product' => ['name' => 'Desk', 'price' => 100]];
+ 
+$contains = Arr::has($array, 'product.name');
+ 
+// true
+ 
+$contains = Arr::has($array, ['product.price', 'product.discount']);
+ 
+// false
+```
+
+### Arr hasAny
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['product' => ['name' => 'Desk', 'price' => 100]];
+ 
+$contains = Arr::hasAny($array, 'product.name');
+ 
+// true
+ 
+$contains = Arr::hasAny($array, ['product.name', 'product.discount']);
+ 
+// true
+ 
+$contains = Arr::hasAny($array, ['category', 'product.discount']);
+ 
+// false
+```
+
+### Arr isAssoc
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$isAssoc = Arr::isAssoc(['product' => ['name' => 'Desk', 'price' => 100]]);
+ 
+// true
+ 
+$isAssoc = Arr::isAssoc([1, 2, 3]);
+ 
+// false
+```
+
+### Arr prepend
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['one', 'two', 'three', 'four'];
+ 
+$array = Arr::prepend($array, 'zero');
+ 
+// ['zero', 'one', 'two', 'three', 'four']
+
+$array = ['price' => 100];
+ 
+$array = Arr::prepend($array, 'Desk', 'name');
+ 
+// ['name' => 'Desk', 'price' => 100]
+```
+
+### Arr pluck
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = [
+    ['product' => ['id' => 1, 'name' => 'Drink']],
+    ['product' => ['id' => 2, 'name' => 'Wheat']],
+];
+ 
+$names = Arr::pluck($array, 'product.name');
+ 
+// ['Drink', 'Wheat']
+```
+
+### Arr only
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['name' => 'Desk', 'price' => 100, 'orders' => 10];
+ 
+$slice = Arr::only($array, ['name', 'price']);
+ 
+// ['name' => 'Desk', 'price' => 100]
+```
+
+### Arr pull
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = ['name' => 'Desk', 'price' => 100];
+ 
+$name = Arr::pull($array, 'name');
+ 
+// $name: Desk
+ 
+// $array: ['price' => 100]
+```
+
+### Arr query
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = [
+    'name' => 'Mike',
+    'order' => [
+        'column' => 'created_at',
+        'direction' => 'desc'
+    ]
+];
+ 
+ $q = Arr::query($array);
+ 
+// name=Mike&order[column]=created_at&order[direction]=desc
+```
+
+### Arr random
+
+```php
+<?php
+ use Fort\PHP\Arr;
+ 
+$array = [1, 2, 3, 4, 5];
+ 
+$random = Arr::random($array);
+ 
+// 4 - (retrieved randomly)
+```
+
 ## SMS
-To start using the SMS support, you must set the following variables in your `.env`  file.
-The `SMS_DRIVER` can only be set to  [`velstack`](https://sms.velstack.com) or [`vonage`](https://vonage.com).
-These are the supported drivers.
+
+To start using the SMS support, you must set the following variables in your `.env`  file. The `SMS_DRIVER` can only be
+set to  [`velstack`](https://sms.velstack.com) or [`vonage`](https://vonage.com). These are the supported drivers.
 
 ``` dotenv
 SMS_DRIVER=velstack
@@ -570,6 +1394,7 @@ SMS_API_KEY=sk_test__
 SMS_SECRET_KEY=
 SMS_SENDER_ID=BUSINESS
 ```
+
 ### Send SMS
 
 ```php
@@ -578,8 +1403,6 @@ SMS_SENDER_ID=BUSINESS
  
  return SMS::send('+233205550368', 'Hello, API messaging is just awesome');
 ```
-
-
 
 ## Math Helpers
 
