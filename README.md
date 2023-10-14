@@ -14,6 +14,16 @@ install with composer
   composer require fort/php
 ```
 
+Add the below codes in your index.php or entry point of your application;
+
+```php
+<?php
+require_once __DIR__ . "/vendor/autoload.php";
+\Dotenv\Dotenv::createImmutable(__DIR__)->load();
+ 
+
+```
+
 # Available PHP Functions
 
 ## Table of Content
@@ -141,29 +151,19 @@ DB_USER=sam
 DB_PASSWORD=sammyabc
 ```
 
-Add the below codes in your index.php or entry point of your application;
-
-```php
-<?php
-require_once __DIR__ . "/vendor/autoload.php";
-\Dotenv\Dotenv::createImmutable(__DIR__)->load();
- 
-
-```
-
 ### Test DB connection
-
+Test if the databases was successfully connected
 ```php
 <?php
 use Fort\PHP\Support\DB;
 
 DB::connect();
 
-// PDO Objected connected
+// PDO Object: connected
 ```
 
 ### Insert Record
-
+Insert or create a new record in your database
 ```php
 <?php
 use Fort\PHP\Support\DB;
@@ -180,7 +180,7 @@ DB::insert('users', [
 ```
 
 ### Update Record
-
+Update a specific record in your database.
 ```php
 <?php
 use Fort\PHP\Support\DB;
@@ -198,10 +198,9 @@ DB::update('users', 1, [
 ```
 
 ### Transactions
-
+Start database transactions.
 ```php
 <?php
-
 use Fort\PHP\Support\DB;
  
 
@@ -224,7 +223,7 @@ public function createInvoice()
 ```
 
 ### Queries
-
+Run queries to your database.
 ```php
 <?php
 use Fort\PHP\Support\DB;
