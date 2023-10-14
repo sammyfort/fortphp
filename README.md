@@ -1456,7 +1456,7 @@ SMS_SENDER_ID=BUSINESS
  // -1
 ```
 
-### Subtraction
+### Division
 
 ```php
 <?php
@@ -1466,7 +1466,7 @@ SMS_SENDER_ID=BUSINESS
  // 3.8
 ```
 
-### Subtraction
+### Multiplication
 
 ```php
 <?php

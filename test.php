@@ -9,7 +9,7 @@ use Fort\PHP\Support\Http;
 use Fort\PHP\Support\SMS;
 
 
-class Tester
+class test
 {
     public function test(){
         Http::send();
