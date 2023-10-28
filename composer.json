@@ -1,5 +1,5 @@
 {
-  "name": "phpidea",
+  "name": "idea/php",
   "description": "PHP Global helpers",
   "type": "library",
   "license": "MIT",
