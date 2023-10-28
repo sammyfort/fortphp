@@ -415,18 +415,25 @@ class Response
     /**
      * Sends HTTP headers and content.
      *
+     * @param bool $flush Whether output buffers should be flushed
+     *
      * @return $this
      */
-    public function send(): static
+    public function send(/* bool $flush = true */): static
     {
         $this->sendHeaders();
         $this->sendContent();
+
+        $flush = 1 <= \func_num_args() ? func_get_arg(0) : true;
+        if (!$flush) {
+            return $this;
+        }
 
         if (\function_exists('fastcgi_finish_request')) {
             fastcgi_finish_request();
         } elseif (\function_exists('litespeed_finish_request')) {
             litespeed_finish_request();
-        } elseif (!\in_array(\PHP_SAPI, ['cli', 'phpdbg'], true)) {
+        } elseif (!\in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
             static::closeOutputBuffers(0, true);
             flush();
         }

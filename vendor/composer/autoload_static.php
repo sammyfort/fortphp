@@ -28,8 +28,8 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
-        '02fb3e4189977b4ba029687884d7e7c2' => __DIR__ . '/../..' . '/src/Library/PHP/Helpers/Standard/Standard_c.php',
-        '69575bb6eb7c6256f7d772998ab24e34' => __DIR__ . '/../..' . '/src/Library/PHP/Helpers/Standard/helpers.php',
+        'd3be05d85ade06a0a0244109a85f6310' => __DIR__ . '/../..' . '/src/Library/PHP/Helpers/Standard/Standard_c.php',
+        'fb784eb6db4553a1a7d40b02811a4cf7' => __DIR__ . '/../..' . '/src/Library/PHP/Helpers/Standard/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -109,6 +109,7 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         ),
         'C' => 
         array (
+            'Carbon\\Doctrine\\' => 16,
             'Carbon\\' => 7,
         ),
         'B' => 
@@ -299,6 +300,10 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         'Doctrine\\Common\\Lexer\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/src',
+        ),
+        'Carbon\\Doctrine\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/carbonphp/carbon-doctrine-types/src/Carbon/Doctrine',
         ),
         'Carbon\\' => 
         array (

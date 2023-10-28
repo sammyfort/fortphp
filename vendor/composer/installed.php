@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'fort/php',
+        'name' => 'php/idea',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd00020d7584c5ecdb3f8f5b8f81552212280b1d9',
+        'reference' => 'fa2720334a5b2f757a332459f58462b4da100dc8',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,12 +11,23 @@
     ),
     'versions' => array(
         'brick/math' => array(
-            'pretty_version' => 'v0.11.x-dev',
-            'version' => '0.11.9999999.9999999-dev',
-            'reference' => '8d60a347dd96c2c748f8993300a27d079a53144a',
+            'pretty_version' => '0.11.0',
+            'version' => '0.11.0.0',
+            'reference' => '0ad82ce168c82ba30d1c01ec86116ab52f589478',
             'type' => 'library',
             'install_path' => __DIR__ . '/../brick/math',
             'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'carbonphp/carbon-doctrine-types' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '49856fbc09fe91b5433381faec60e3620ad364ad',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../carbonphp/carbon-doctrine-types',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
             'dev_requirement' => false,
         ),
         'doctrine/lexer' => array(
@@ -31,18 +42,9 @@
         'egulias/email-validator' => array(
             'pretty_version' => '4.x-dev',
             'version' => '4.9999999.9999999.9999999-dev',
-            'reference' => 'ebaaf5be6c0286928352e054f2d5125608e5405e',
+            'reference' => '877577656387a3ffabae60dd4c425059179834cb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../egulias/email-validator',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'fort/php' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'd00020d7584c5ecdb3f8f5b8f81552212280b1d9',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -83,9 +85,9 @@
             'dev_requirement' => false,
         ),
         'laminas/laminas-diactoros' => array(
-            'pretty_version' => '3.3.x-dev',
-            'version' => '3.3.9999999.9999999-dev',
-            'reference' => '1948b4ec21872b311dfeba66ca9b09d0a003743e',
+            'pretty_version' => '3.4.x-dev',
+            'version' => '3.4.9999999.9999999-dev',
+            'reference' => '4db52734837c60259c9b2d7caf08eef8f7f9b9ac',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laminas/laminas-diactoros',
             'aliases' => array(),
@@ -112,12 +114,21 @@
         'nesbot/carbon' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '98276233188583f2ff845a0f992a235472d9466a',
+            'reference' => 'b02302e73807ef75d3f9c5debdf4b85a4c072d73',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(
                 0 => '2.x-dev',
             ),
+            'dev_requirement' => false,
+        ),
+        'php/idea' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'fa2720334a5b2f757a332459f58462b4da100dc8',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'phpoption/phpoption' => array(
@@ -302,7 +313,7 @@
         'symfony/error-handler' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => '0ee2cb794a3e20e8402dd7f30cc0c8c0f7b489e3',
+            'reference' => 'c873490a1c97b3a0a4838afc36ff36c112d02788',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/error-handler',
             'aliases' => array(),
@@ -337,7 +348,7 @@
         'symfony/finder' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => '1591b45a5706b3a262e907365757db5383f8176e',
+            'reference' => 'c0b454c593bc9dd3e23592eb899890b6e61292f0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/finder',
             'aliases' => array(),
@@ -346,7 +357,7 @@
         'symfony/http-foundation' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => '27a2cfc132250eae52c42565b23e72d80a81d387',
+            'reference' => '1b56e82bc210d2ce31751a8ba5b5fc6438d24171',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-foundation',
             'aliases' => array(),
@@ -355,7 +366,7 @@
         'symfony/http-kernel' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => 'e48d33866c48850a635cf46d9cf2ff0f299891f6',
+            'reference' => 'e4ea1cf9a6a2c258d835eb947387523ac121ee52',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-kernel',
             'aliases' => array(),
@@ -373,7 +384,7 @@
         'symfony/mime' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => 'fae6d88fc5a18c4371f440ca973d67cfcaafb5c6',
+            'reference' => 'ca4f58b2ef4baa8f6cecbeca2573f88cd577d205',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/mime',
             'aliases' => array(),
@@ -456,7 +467,7 @@
         'symfony/translation' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => '4e7ee96283b74666ab100f4eda33636dfe65246e',
+            'reference' => 'fc47a5caef4fe8ea409dc1e6edcc2275414fb069',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/translation',
             'aliases' => array(),
@@ -482,7 +493,7 @@
         'symfony/var-dumper' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => '10d1fa47a72c01a88184fa026d68a00076639dd1',
+            'reference' => '44d76a06588621fe88a4c49ca398364c1be39080',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/var-dumper',
             'aliases' => array(),
