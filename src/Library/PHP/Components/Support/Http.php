@@ -14,7 +14,7 @@ use Fort\PHP\Contracts\Http\Fort;
  * @method static delete(string $uri, array $headers = null)
  */
 
-class Http extends Fort
+final class Http extends Fort
 {
 
 

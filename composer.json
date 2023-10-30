@@ -14,6 +14,7 @@
         "src/Library/Handler/",
         "src/Library/PHP/Helpers"
       ]
+
     },
     "files": [
       "src/Library/PHP/Helpers/Standard/Standard_c.php",
@@ -51,6 +52,7 @@
     "symfony/http-kernel": "^6.2",
     "symfony/mailer": "^6.2",
     "ext-curl": "*",
-    "vonage/client": "4.0"
+    "vonage/client": "4.0",
+    "symfony/http-client": "6.4.x-dev"
   }
 }

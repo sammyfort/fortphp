@@ -1,6 +1,7 @@
 <?php
 
 
+use Fort\PHP\Builders\Application;
 use Fort\PHP\Elevators\Container;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\VarDumper\VarDumper;
@@ -64,6 +65,22 @@ if (!function_exists('dd')) {
         }
 
         exit(1);
+    }
+}
+
+if (!function_exists('view')) {
+
+    function view(string $view, $data = [])
+    {
+        return Application::$app->router->renderOnlyView($view, $data);
+    }
+}
+
+if (!function_exists('layout')) {
+
+    function layout(string $view, $data = [])
+    {
+        return Application::$app->router->renderView($view, $data);
     }
 }
 

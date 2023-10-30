@@ -2,7 +2,7 @@
 /**
  * Helper class that provides easy access to useful php functions.
  *
- * @author      Samuel Fort <sam@velstack.com>
+ * @author      Samuel Transporter <sam@velstack.com>
  * @link        https://github.com/sammyfort/FortPHP
  * @license     MIT
  *

@@ -9,7 +9,7 @@ use Exception;
 use Fort\Exception\LogicException;
 use Fort\PHP\Builders\Database\BuildQueries;
 use Fort\PHP\Builders\Database\QueryBuilders as Builder;
-use Fort\PHP\Contracts\Http\Requests as HttpRequest;
+use Fort\PHP\Contracts\Http\HttpRequests as HttpRequest;
 
 use PDO;
 

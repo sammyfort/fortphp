@@ -2,27 +2,14 @@
 
 
 namespace Fort\PHP\Contracts\Http;
-use Fort\PHP\Builders\SMS\smsDriver as Driver;
-use Fort\PHP\Contracts\Http\Requests as HttpRequest;
 
 
-abstract class Fort extends Driver
+
+abstract class Fort
 {
+    use  HttpRequests;
 
-    use HttpRequest;
 
-    /**
-     * Connect to the database set in the .env file
-     * </p>
-     * @param $recipient
-     * @param string $message
-     * @return mixed
-     */
-
-    public static function send($recipient, string $message): mixed
-    {
-        return self::forwardToProvider($recipient, $message);
-    }
 
     /**
      * Perform http get request
@@ -30,10 +17,10 @@ abstract class Fort extends Driver
      * @param string $uri
      * @param array|null $headers
      * @param array|null $config
-     * @return bool|string
+
      */
 
-    protected static function get(string $uri,  array $headers= null, array $config = null): bool|string
+    public static function get(string $uri, array $headers = null, array $config = null)
     {
 
         return static::getRequest($uri, $headers, $config);
@@ -45,10 +32,10 @@ abstract class Fort extends Driver
      * @param string $uri
      * @param array $data
      * @param array|null $headers
-     * @return bool|string
+     *  * @return mixed
      */
 
-    protected static function post(string $uri, array $data,  array $headers = null): bool|string
+    public static function post(string $uri, array $data,  array $headers = null): mixed
     {
 
         return static::postRequest($uri, $data, $headers);
@@ -60,10 +47,10 @@ abstract class Fort extends Driver
      * @param string $uri
      * @param array $data
      * @param array|null $headers
-     * @return bool|string
+     * @return mixed
      */
 
-    protected static function put(string $uri, array $data,  array $headers = null): bool|string
+    protected static function put(string $uri, array $data,  array $headers = null)
     {
 
         return static::putRequest($uri, $data, $headers);
@@ -75,9 +62,10 @@ abstract class Fort extends Driver
      * @param string $uri
      * @param array|null $headers
      * @return bool|string
+     *  * @return mixed
      */
 
-    protected static function delete(string $uri, array $headers = null): bool|string
+    protected static function delete(string $uri, array $headers = null)
     {
         return static::deleteRequest($uri, $headers);
     }
@@ -87,13 +75,16 @@ abstract class Fort extends Driver
      * </p>
      * @param string $uri
      * @param array $data
-     * @param string|null $headers
-     * @return bool|string
+     * @param array|null $headers
+     *  * @return mixed
+
      */
 
-    protected static function asPostMultipart(string $uri, array $data, array $headers = null): bool|string
+    protected static function asPostMultipart(string $uri, array $data, array $headers = null)
     {
         return static::multipart($uri, $data, $headers);
     }
+
+
 
 }

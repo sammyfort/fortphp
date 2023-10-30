@@ -28,8 +28,8 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
-        'd3be05d85ade06a0a0244109a85f6310' => __DIR__ . '/../..' . '/src/Library/PHP/Helpers/Standard/Standard_c.php',
-        'fb784eb6db4553a1a7d40b02811a4cf7' => __DIR__ . '/../..' . '/src/Library/PHP/Helpers/Standard/helpers.php',
+        '02fb3e4189977b4ba029687884d7e7c2' => __DIR__ . '/../..' . '/src/Library/PHP/Helpers/Standard/Standard_c.php',
+        '69575bb6eb7c6256f7d772998ab24e34' => __DIR__ . '/../..' . '/src/Library/PHP/Helpers/Standard/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -53,6 +53,7 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Contracts\\Service\\' => 26,
+            'Symfony\\Contracts\\HttpClient\\' => 29,
             'Symfony\\Contracts\\EventDispatcher\\' => 34,
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
@@ -60,6 +61,7 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
             'Symfony\\Component\\Mailer\\' => 25,
             'Symfony\\Component\\HttpKernel\\' => 29,
             'Symfony\\Component\\HttpFoundation\\' => 33,
+            'Symfony\\Component\\HttpClient\\' => 29,
             'Symfony\\Component\\Finder\\' => 25,
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\ErrorHandler\\' => 31,
@@ -167,6 +169,10 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         array (
             0 => __DIR__ . '/..' . '/symfony/service-contracts',
         ),
+        'Symfony\\Contracts\\HttpClient\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/http-client-contracts',
+        ),
         'Symfony\\Contracts\\EventDispatcher\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher-contracts',
@@ -194,6 +200,10 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         'Symfony\\Component\\HttpFoundation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/http-foundation',
+        ),
+        'Symfony\\Component\\HttpClient\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/http-client',
         ),
         'Symfony\\Component\\Finder\\' => 
         array (

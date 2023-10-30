@@ -4,14 +4,15 @@
 namespace Fort\PHP\Support;
 
 
-use Fort\PHP\Contracts\Http\Fort;
+use Fort\PHP\Components\Contracts\SMS\Transporter;
+
 
 /**
  * @method static send($recipient, string $message)
 
  */
 
-class SMS extends Fort
+class SMS extends Transporter
 {
 
 

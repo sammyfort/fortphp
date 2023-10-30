@@ -418,7 +418,7 @@ DB::table('invoices')->min('amount');
 <?php
  use Fort\PHP\Str;
 
- $haystack = array('Fort', 'Everette', 'Mike');
+ $haystack = array('Transporter', 'Everette', 'Mike');
  // returns true if the needle exist in case insensitive, false otherwise
  Str::valueExist($haystack, 'foRT');
   // true
@@ -509,11 +509,11 @@ $slice = Str::between('He was born in March', 'He', 'March');
  use Fort\PHP\Str;
  
  
-$string = 'Fort is a brilliant !';
+$string = 'Transporter is a brilliant !';
  
 $replaced = Str::replace('brilliant', 'genius', $string);
  
-// Fort is a genius !
+// Transporter is a genius !
 
 ```
 
@@ -524,7 +524,7 @@ $replaced = Str::replace('brilliant', 'genius', $string);
  use Fort\PHP\Str;
  
  
-$string = 'Fort !';
+$string = 'Transporter !';
  
 $char = Str::charAt($string, 3);
  
@@ -965,11 +965,11 @@ $output = Str::ucfirst('beautiful');
 <?php
  use Fort\PHP\Arr;
  
-$array = ['Fort'=> 3, 'Phil'=> 0, 'Ever'=> 1];
+$array = ['Transporter'=> 3, 'Phil'=> 0, 'Ever'=> 1];
 
 print_r(Arr::maximum($array));
 
-// Fort
+// Transporter
 ```
 
 ### Arr Minimum
@@ -978,7 +978,7 @@ print_r(Arr::maximum($array));
 <?php
  use Fort\PHP\Arr;
  
-$array = ['Fort'=> 3, 'Phil'=> 1, 'Ever'=> 0];
+$array = ['Transporter'=> 3, 'Phil'=> 1, 'Ever'=> 0];
 
 print_r(Arr::minimum($array));
 
@@ -994,7 +994,7 @@ false otherwise.
 <?php
  use Fort\PHP\Arr;
  
-$array = ['Fort', 'Phil', 'Ever'];
+$array = ['Transporter', 'Phil', 'Ever'];
 
  print_r(Arr::valueExist($array, 'FORT'));
 
@@ -1007,7 +1007,7 @@ $array = ['Fort', 'Phil', 'Ever'];
 <?php
  use Fort\PHP\Arr;
  
-$array = ['Fort' => 1, 'Phil'=> 2, 'Ever' => 3];
+$array = ['Transporter' => 1, 'Phil'=> 2, 'Ever' => 3];
 
  print_r(Arr::accessible($array));
 

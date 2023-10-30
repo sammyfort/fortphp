@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'php/idea',
+        'name' => 'fort/php',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'fa2720334a5b2f757a332459f58462b4da100dc8',
+        'reference' => '6eb32b192ef53fc439453838ab31d4b7b4fc4f4d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -45,6 +45,15 @@
             'reference' => '877577656387a3ffabae60dd4c425059179834cb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../egulias/email-validator',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'fort/php' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '6eb32b192ef53fc439453838ab31d4b7b4fc4f4d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -122,14 +131,17 @@
             ),
             'dev_requirement' => false,
         ),
-        'php/idea' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'fa2720334a5b2f757a332459f58462b4da100dc8',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
+        'php-http/async-client-implementation' => array(
             'dev_requirement' => false,
+            'provided' => array(
+                0 => '*',
+            ),
+        ),
+        'php-http/client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '*',
+            ),
         ),
         'phpoption/phpoption' => array(
             'pretty_version' => 'dev-master',
@@ -353,6 +365,32 @@
             'install_path' => __DIR__ . '/../symfony/finder',
             'aliases' => array(),
             'dev_requirement' => false,
+        ),
+        'symfony/http-client' => array(
+            'pretty_version' => '6.4.x-dev',
+            'version' => '6.4.9999999.9999999-dev',
+            'reference' => 'a4d0e09bf84c03747e3fde236f1f13153cccaaff',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/http-client',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/http-client-contracts' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'c58b55bbca7422e19ed51667313834b67b098517',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/http-client-contracts',
+            'aliases' => array(
+                0 => '3.4.x-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'symfony/http-client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '3.0',
+            ),
         ),
         'symfony/http-foundation' => array(
             'pretty_version' => '6.4.x-dev',
