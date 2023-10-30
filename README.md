@@ -361,7 +361,7 @@ DB::table('invoices')->min('amount');
  use Fort\PHP\Support\Http;
  
  Http::post('https://api.velstack.com/send',[$data],
-            ["Accept: application/json", "Authorization: Bearer API_KEY"]);
+            ["Accept" => "application/json", "Authorization" => "Bearer API_KEY}"];
 
 ```
 
@@ -372,7 +372,7 @@ DB::table('invoices')->min('amount');
  use Fort\PHP\Support\Http;
  
  Http::get('https://api.velstack.com/resource', 
-            ["Accept: application/json", "Authorization: Bearer API_KEY}"],
+            ["Accept" => "application/json", "Authorization" => "Bearer API_KEY}"],
             ['timeout'=> 20, 'return_transfer'=> true, 'maxredirs'=> 10, 'encoding'=> ""]);
 
 ```
@@ -384,7 +384,7 @@ DB::table('invoices')->min('amount');
  use Fort\PHP\Support\Http;
  
  Http::put('https://api.velstack.com/resource', [$data],
-            ["Accept: application/json", "Authorization: Bearer API_KEY}"]);
+             ["Accept" => "application/json", "Authorization" => "Bearer API_KEY}"],
 
 ```
 
@@ -395,7 +395,7 @@ DB::table('invoices')->min('amount');
  use Fort\PHP\Support\Http;
  
  Http::delete('https://api.velstack.com/resource', 
-            ["Accept: application/json", "Authorization: Bearer API_KEY}"]);
+             ["Accept" => "application/json", "Authorization" => "Bearer API_KEY}"],
 
 ```
 
@@ -406,7 +406,8 @@ DB::table('invoices')->min('amount');
  use Fort\PHP\Support\Http;
  
  Http::asPostMultipart('https://api.velstack.com/send', [$data],
-             "Authorization: Bearer API_KEY");
+             ["Accept" => "application/json", "Authorization" => "Bearer API_KEY"]
+             );
 
 ```
 
