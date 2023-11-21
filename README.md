@@ -419,7 +419,7 @@ DB::table('invoices')->min('amount');
 <?php
  use Fort\PHP\Str;
 
- $haystack = array('Transporter', 'Everette', 'Mike');
+ $haystack = array('FORT', 'Everette', 'Mike');
  // returns true if the needle exist in case insensitive, false otherwise
  Str::valueExist($haystack, 'foRT');
   // true
@@ -465,7 +465,7 @@ $slice = Str::after('His name is fort', 'His name');
 <?php
  use Fort\PHP\Str;
 
- $slice = Str::afterLast('App\Http\Controllers\Controller', '\\');
+ $slice = Str::afterLast('app\Http\Controllers\Controller', '\\');
  // 'Controller'
 
 ```

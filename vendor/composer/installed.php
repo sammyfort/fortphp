@@ -3,7 +3,7 @@
         'name' => 'fort/php',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '6eb32b192ef53fc439453838ab31d4b7b4fc4f4d',
+        'reference' => 'd7aa0fbdd00b602a333bc1d4494899065dd2ec41',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -51,7 +51,7 @@
         'fort/php' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '6eb32b192ef53fc439453838ab31d4b7b4fc4f4d',
+            'reference' => 'd7aa0fbdd00b602a333bc1d4494899065dd2ec41',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -395,7 +395,7 @@
         'symfony/http-foundation' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => '1b56e82bc210d2ce31751a8ba5b5fc6438d24171',
+            'reference' => 'ead32024e350d01701db3e92f71a6b23d113d67c',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-foundation',
             'aliases' => array(),
@@ -404,7 +404,7 @@
         'symfony/http-kernel' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => 'e4ea1cf9a6a2c258d835eb947387523ac121ee52',
+            'reference' => '9bd707368b6a22875fad69651b05a7cdb0bdedd5',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-kernel',
             'aliases' => array(),
@@ -505,7 +505,7 @@
         'symfony/translation' => array(
             'pretty_version' => '6.4.x-dev',
             'version' => '6.4.9999999.9999999-dev',
-            'reference' => 'fc47a5caef4fe8ea409dc1e6edcc2275414fb069',
+            'reference' => '8057a62933f5609340a4f8c36feeec88c09ea024',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/translation',
             'aliases' => array(),

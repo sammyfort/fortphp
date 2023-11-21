@@ -13,8 +13,8 @@
         "src/Library/Exception/",
         "src/Library/Handler/",
         "src/Library/PHP/Helpers"
-      ]
-
+      ],
+      "App\\": "app/"
     },
     "files": [
       "src/Library/PHP/Helpers/Standard/Standard_c.php",

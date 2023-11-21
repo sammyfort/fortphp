@@ -2352,12 +2352,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "1b56e82bc210d2ce31751a8ba5b5fc6438d24171"
+                "reference": "ead32024e350d01701db3e92f71a6b23d113d67c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/1b56e82bc210d2ce31751a8ba5b5fc6438d24171",
-                "reference": "1b56e82bc210d2ce31751a8ba5b5fc6438d24171",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/ead32024e350d01701db3e92f71a6b23d113d67c",
+                "reference": "ead32024e350d01701db3e92f71a6b23d113d67c",
                 "shasum": ""
             },
             "require": {
@@ -2379,7 +2379,7 @@
                 "symfony/mime": "^5.4|^6.0|^7.0",
                 "symfony/rate-limiter": "^5.4|^6.0|^7.0"
             },
-            "time": "2023-10-26T18:19:48+00:00",
+            "time": "2023-10-29T12:45:59+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -2432,12 +2432,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "e4ea1cf9a6a2c258d835eb947387523ac121ee52"
+                "reference": "9bd707368b6a22875fad69651b05a7cdb0bdedd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/e4ea1cf9a6a2c258d835eb947387523ac121ee52",
-                "reference": "e4ea1cf9a6a2c258d835eb947387523ac121ee52",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/9bd707368b6a22875fad69651b05a7cdb0bdedd5",
+                "reference": "9bd707368b6a22875fad69651b05a7cdb0bdedd5",
                 "shasum": ""
             },
             "require": {
@@ -2495,7 +2495,7 @@
                 "symfony/var-exporter": "^6.2|^7.0",
                 "twig/twig": "^2.13|^3.0.4"
             },
-            "time": "2023-10-27T07:47:11+00:00",
+            "time": "2023-10-29T14:55:55+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3407,12 +3407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "fc47a5caef4fe8ea409dc1e6edcc2275414fb069"
+                "reference": "8057a62933f5609340a4f8c36feeec88c09ea024"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/fc47a5caef4fe8ea409dc1e6edcc2275414fb069",
-                "reference": "fc47a5caef4fe8ea409dc1e6edcc2275414fb069",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/8057a62933f5609340a4f8c36feeec88c09ea024",
+                "reference": "8057a62933f5609340a4f8c36feeec88c09ea024",
                 "shasum": ""
             },
             "require": {
@@ -3449,7 +3449,7 @@
                 "symfony/service-contracts": "^2.5|^3",
                 "symfony/yaml": "^5.4|^6.0|^7.0"
             },
-            "time": "2023-10-27T10:31:04+00:00",
+            "time": "2023-10-28T23:12:08+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {

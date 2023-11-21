@@ -118,6 +118,10 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         array (
             'Brick\\Math\\' => 11,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -322,6 +326,10 @@ class ComposerStaticInitaa94a6071568304ba5ad5ca593fe2872
         'Brick\\Math\\' => 
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 

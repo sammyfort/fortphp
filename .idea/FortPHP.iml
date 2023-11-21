@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Library/PHP" isTestSource="false" packagePrefix="Fort\PHP\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Library/PHP/Components" isTestSource="false" packagePrefix="Fort\PHP\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Library/PHP/Helpers" isTestSource="false" packagePrefix="Fort\PHP\" />
+      <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="App\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />

@@ -4,7 +4,7 @@
 namespace Fort\PHP\Builders;
 
 
-use App\Controllers\UserController;
+use App\UserController;
 use Closure;
 use Fort\Exception\RouteNotFoundException;
 use Fort\PHP\Http\Request;
@@ -55,16 +55,8 @@ class Router
       }
 
       if (is_array($callback)){
-          [$class, $method] = $callback;
-          $obj = new UserController();
-          return call_user_func([$obj, 'index'], [$this->request, $this->response]);
-//          if (class_exists($class)){
-//              $class = new $class();
-//          }
-//
-//          if (method_exists($class,$method)){
-//              return call_user_func_array([$class, $method], [$this->request, $this->response]);
-//          }
+
+          return call_user_func($callback, [$this->request, $this->response]);
       }
 
       return 'null';
